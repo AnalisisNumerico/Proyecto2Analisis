@@ -9,8 +9,8 @@ namespace anpi {
    */
   template<typename T>
   inline void lu(const anpi::Matrix<T>& A,
-                 anpi::Matrix<T> LU,
-                 std::vector<size_t>& p) {
+                 anpi::Matrix<T>&      LU,
+                 std::vector<size_t>&   p) {
     anpi::luDoolittle(A,LU,p);
   }
 

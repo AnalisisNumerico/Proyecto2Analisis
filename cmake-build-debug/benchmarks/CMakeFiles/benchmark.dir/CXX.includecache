@@ -112,7 +112,7 @@ type_traits
 iostream
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
 chrono
 -
 iostream
@@ -128,11 +128,11 @@ Matrix.hpp
 PlotPy.hpp
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
 boost/test/unit_test.hpp
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp
 boost/test/unit_test.hpp
 -
 iostream
@@ -144,13 +144,13 @@ cstdlib
 complex
 -
 benchmarkFramework.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
 Matrix.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/Matrix.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/Matrix.hpp
 Allocator.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/Allocator.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/Allocator.hpp
 LUCrout.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/LUCrout.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/LUCrout.hpp
 LUDoolittle.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/LUDoolittle.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/LUDoolittle.hpp
 

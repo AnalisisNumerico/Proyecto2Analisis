@@ -102,43 +102,29 @@ type_traits
 iostream
 -
 
-../include/qr.hpp
-cmath
--
-limits
--
-functional
--
-iostream
--
-Exception.hpp
-../include/Exception.hpp
-Matrix.hpp
-../include/Matrix.hpp
-
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testAllocator.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAllocator.cpp
 boost/test/unit_test.hpp
 -
 Allocator.hpp
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testLU.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testLU.cpp
 boost/test/unit_test.hpp
 -
 LUCrout.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/LUCrout.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/LUCrout.hpp
 LUDoolittle.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/LUDoolittle.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/LUDoolittle.hpp
 iostream
 -
 complex
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testMain.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMain.cpp
 boost/test/unit_test.hpp
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testMatrix.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMatrix.cpp
 boost/test/unit_test.hpp
 -
 iostream
@@ -150,29 +136,13 @@ cstdlib
 complex
 -
 Matrix.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/Matrix.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/Matrix.hpp
 Allocator.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/Allocator.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/Allocator.hpp
 iostream
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testQR.cpp
-boost/test/unit_test.hpp
--
-qr.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/qr.hpp
-iostream
--
-exception
--
-cstdlib
--
-functional
--
-cmath
--
-
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testSolver.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testSolver.cpp
 boost/test/unit_test.hpp
 -
 iostream
@@ -186,5 +156,5 @@ functional
 cmath
 -
 Solver.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/Solver.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/Solver.hpp
 

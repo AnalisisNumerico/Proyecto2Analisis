@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/tester.dir/testLU.cpp.o"
   "CMakeFiles/tester.dir/testMain.cpp.o"
   "CMakeFiles/tester.dir/testMatrix.cpp.o"
-  "CMakeFiles/tester.dir/testQR.cpp.o"
   "CMakeFiles/tester.dir/testSolver.cpp.o"
   "tester.pdb"
   "tester"

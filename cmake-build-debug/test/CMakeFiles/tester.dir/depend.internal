@@ -4,7 +4,7 @@
 test/CMakeFiles/tester.dir/testAllocator.cpp.o
  ../include/Allocator.hpp
  ../include/HasType.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testAllocator.cpp
+ /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAllocator.cpp
 test/CMakeFiles/tester.dir/testLU.cpp.o
  ../include/Allocator.hpp
  ../include/AnpiConfig.hpp
@@ -16,9 +16,9 @@ test/CMakeFiles/tester.dir/testLU.cpp.o
  ../include/Matrix.hpp
  ../include/Matrix.tpp
  ../include/bits/MatrixArithmetic.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testLU.cpp
+ /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testLU.cpp
 test/CMakeFiles/tester.dir/testMain.cpp.o
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testMain.cpp
+ /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMain.cpp
 test/CMakeFiles/tester.dir/testMatrix.cpp.o
  ../include/Allocator.hpp
  ../include/AnpiConfig.hpp
@@ -28,18 +28,7 @@ test/CMakeFiles/tester.dir/testMatrix.cpp.o
  ../include/Matrix.hpp
  ../include/Matrix.tpp
  ../include/bits/MatrixArithmetic.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testMatrix.cpp
-test/CMakeFiles/tester.dir/testQR.cpp.o
- ../include/Allocator.hpp
- ../include/AnpiConfig.hpp
- ../include/Exception.hpp
- ../include/HasType.hpp
- ../include/Intrinsics.hpp
- ../include/Matrix.hpp
- ../include/Matrix.tpp
- ../include/bits/MatrixArithmetic.hpp
- ../include/qr.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testQR.cpp
+ /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMatrix.cpp
 test/CMakeFiles/tester.dir/testSolver.cpp.o
  ../include/Allocator.hpp
  ../include/AnpiConfig.hpp
@@ -51,4 +40,4 @@ test/CMakeFiles/tester.dir/testSolver.cpp.o
  ../include/Matrix.tpp
  ../include/Solver.hpp
  ../include/bits/MatrixArithmetic.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testSolver.cpp
+ /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testSolver.cpp

@@ -1,4 +1,4 @@
-/home/ger534/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ger534/CLionProjects/Proyecto2Analisis
+/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jeanpaul/Code/c++/Proyecto2Analisis
 -- The CXX compiler identification is GNU 7.2.0
 -- Check for working CXX compiler: /usr/bin/c++
 -- Check for working CXX compiler: /usr/bin/c++ -- works
@@ -24,4 +24,4 @@
 --   unit_test_framework
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug
+-- Build files have been written to: /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug
