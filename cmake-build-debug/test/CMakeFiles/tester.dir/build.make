@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -81,9 +81,33 @@ test/CMakeFiles/tester.dir/testAllocator.cpp.o.provides: test/CMakeFiles/tester.
 test/CMakeFiles/tester.dir/testAllocator.cpp.o.provides.build: test/CMakeFiles/tester.dir/testAllocator.cpp.o
 
 
+test/CMakeFiles/tester.dir/testAplication.cpp.o: test/CMakeFiles/tester.dir/flags.make
+test/CMakeFiles/tester.dir/testAplication.cpp.o: ../test/testAplication.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/tester.dir/testAplication.cpp.o"
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tester.dir/testAplication.cpp.o -c /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAplication.cpp
+
+test/CMakeFiles/tester.dir/testAplication.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tester.dir/testAplication.cpp.i"
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAplication.cpp > CMakeFiles/tester.dir/testAplication.cpp.i
+
+test/CMakeFiles/tester.dir/testAplication.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tester.dir/testAplication.cpp.s"
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAplication.cpp -o CMakeFiles/tester.dir/testAplication.cpp.s
+
+test/CMakeFiles/tester.dir/testAplication.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/tester.dir/testAplication.cpp.o.requires
+
+test/CMakeFiles/tester.dir/testAplication.cpp.o.provides: test/CMakeFiles/tester.dir/testAplication.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/testAplication.cpp.o.provides.build
+.PHONY : test/CMakeFiles/tester.dir/testAplication.cpp.o.provides
+
+test/CMakeFiles/tester.dir/testAplication.cpp.o.provides.build: test/CMakeFiles/tester.dir/testAplication.cpp.o
+
+
 test/CMakeFiles/tester.dir/testLU.cpp.o: test/CMakeFiles/tester.dir/flags.make
 test/CMakeFiles/tester.dir/testLU.cpp.o: ../test/testLU.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/tester.dir/testLU.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/tester.dir/testLU.cpp.o"
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tester.dir/testLU.cpp.o -c /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testLU.cpp
 
 test/CMakeFiles/tester.dir/testLU.cpp.i: cmake_force
@@ -107,7 +131,7 @@ test/CMakeFiles/tester.dir/testLU.cpp.o.provides.build: test/CMakeFiles/tester.d
 
 test/CMakeFiles/tester.dir/testMain.cpp.o: test/CMakeFiles/tester.dir/flags.make
 test/CMakeFiles/tester.dir/testMain.cpp.o: ../test/testMain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/tester.dir/testMain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/tester.dir/testMain.cpp.o"
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tester.dir/testMain.cpp.o -c /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMain.cpp
 
 test/CMakeFiles/tester.dir/testMain.cpp.i: cmake_force
@@ -131,7 +155,7 @@ test/CMakeFiles/tester.dir/testMain.cpp.o.provides.build: test/CMakeFiles/tester
 
 test/CMakeFiles/tester.dir/testMatrix.cpp.o: test/CMakeFiles/tester.dir/flags.make
 test/CMakeFiles/tester.dir/testMatrix.cpp.o: ../test/testMatrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/tester.dir/testMatrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object test/CMakeFiles/tester.dir/testMatrix.cpp.o"
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tester.dir/testMatrix.cpp.o -c /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testMatrix.cpp
 
 test/CMakeFiles/tester.dir/testMatrix.cpp.i: cmake_force
@@ -155,7 +179,7 @@ test/CMakeFiles/tester.dir/testMatrix.cpp.o.provides.build: test/CMakeFiles/test
 
 test/CMakeFiles/tester.dir/testSolver.cpp.o: test/CMakeFiles/tester.dir/flags.make
 test/CMakeFiles/tester.dir/testSolver.cpp.o: ../test/testSolver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object test/CMakeFiles/tester.dir/testSolver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object test/CMakeFiles/tester.dir/testSolver.cpp.o"
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tester.dir/testSolver.cpp.o -c /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testSolver.cpp
 
 test/CMakeFiles/tester.dir/testSolver.cpp.i: cmake_force
@@ -180,6 +204,7 @@ test/CMakeFiles/tester.dir/testSolver.cpp.o.provides.build: test/CMakeFiles/test
 # Object files for target tester
 tester_OBJECTS = \
 "CMakeFiles/tester.dir/testAllocator.cpp.o" \
+"CMakeFiles/tester.dir/testAplication.cpp.o" \
 "CMakeFiles/tester.dir/testLU.cpp.o" \
 "CMakeFiles/tester.dir/testMain.cpp.o" \
 "CMakeFiles/tester.dir/testMatrix.cpp.o" \
@@ -189,6 +214,7 @@ tester_OBJECTS = \
 tester_EXTERNAL_OBJECTS =
 
 test/tester: test/CMakeFiles/tester.dir/testAllocator.cpp.o
+test/tester: test/CMakeFiles/tester.dir/testAplication.cpp.o
 test/tester: test/CMakeFiles/tester.dir/testLU.cpp.o
 test/tester: test/CMakeFiles/tester.dir/testMain.cpp.o
 test/tester: test/CMakeFiles/tester.dir/testMatrix.cpp.o
@@ -199,7 +225,7 @@ test/tester: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 test/tester: /usr/lib/x86_64-linux-gnu/libboost_system.so
 test/tester: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
 test/tester: test/CMakeFiles/tester.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable tester"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable tester"
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tester.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -208,6 +234,7 @@ test/CMakeFiles/tester.dir/build: test/tester
 .PHONY : test/CMakeFiles/tester.dir/build
 
 test/CMakeFiles/tester.dir/requires: test/CMakeFiles/tester.dir/testAllocator.cpp.o.requires
+test/CMakeFiles/tester.dir/requires: test/CMakeFiles/tester.dir/testAplication.cpp.o.requires
 test/CMakeFiles/tester.dir/requires: test/CMakeFiles/tester.dir/testLU.cpp.o.requires
 test/CMakeFiles/tester.dir/requires: test/CMakeFiles/tester.dir/testMain.cpp.o.requires
 test/CMakeFiles/tester.dir/requires: test/CMakeFiles/tester.dir/testMatrix.cpp.o.requires

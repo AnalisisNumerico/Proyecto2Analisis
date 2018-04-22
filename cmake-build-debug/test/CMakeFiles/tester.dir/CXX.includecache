@@ -14,6 +14,10 @@ HasType.hpp
 
 ../include/AnpiConfig.hpp
 
+../include/Aplication.hpp
+Matrix.hpp
+../include/Matrix.hpp
+
 ../include/Exception.hpp
 exception
 -
@@ -107,6 +111,12 @@ boost/test/unit_test.hpp
 -
 Allocator.hpp
 -
+
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAplication.cpp
+boost/test/unit_test.hpp
+-
+Aplication.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/Aplication.hpp
 
 /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testLU.cpp
 boost/test/unit_test.hpp

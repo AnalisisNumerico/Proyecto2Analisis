@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Proyecto2Analisis" targetName="tester" />
       <config projectName="Proyecto2Analisis" targetName="benchmark" />
       <config projectName="Proyecto2Analisis" targetName="Proyecto2Analisis" />
+      <config projectName="Proyecto2Analisis" targetName="tester" />
       <config projectName="Proyecto2Analisis" targetName="anpi" />
     </generated>
   </component>
@@ -15,43 +15,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7da1395-0259-4c92-ac82-e3a23dfea8c8" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/include/Aplication.hpp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/testAplication.cpp" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCXXCompiler.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeSystem.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.out" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CTestTestfile.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/DependInfo.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Proyecto2Analisis.cbp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/benchmarkMain.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/benchmarkMain.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/build.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CTestTestfile.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/CMakeFiles/benchmark.dir/link.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/LU Crout" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/LU Doolittle" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/Makefile" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/benchmark" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/benchmark" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/benchmarks/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/benchmarks/cmake_install.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/DependInfo.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/build.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/flags.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/link.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/Proyecto2Analisis.dir/main.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/build.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/flags.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/anpi.dir/main.cpp.o" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/Proyecto2Analisis" afterPath="$PROJECT_DIR$/cmake-build-debug/src/Proyecto2Analisis" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/src/cmake_install.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/libanpi.a" afterPath="$PROJECT_DIR$/cmake-build-debug/src/libanpi.a" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/CXX.includecache" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/DependInfo.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/build.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/cmake_clean.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/depend.internal" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/depend.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/flags.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/link.txt" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/progress.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CTestTestfile.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testAllocator.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testAllocator.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testLU.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testLU.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testMain.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testMain.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testMatrix.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testMatrix.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testQR.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testSolver.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/tester.dir/testSolver.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/cmake_install.cmake" />
-      <change beforePath="$PROJECT_DIR$/include/Solver.hpp" afterPath="$PROJECT_DIR$/include/Solver.hpp" />
-      <change beforePath="$PROJECT_DIR$/test/testSolver.cpp" afterPath="$PROJECT_DIR$/test/testSolver.cpp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/tester" afterPath="$PROJECT_DIR$/cmake-build-debug/test/tester" />
+      <change beforePath="$PROJECT_DIR$/include/LUCrout.hpp" afterPath="$PROJECT_DIR$/include/LUCrout.hpp" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,43 +88,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Aplication.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="219">
+              <caret line="130" column="20" lean-forward="false" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
+              <folding>
+                <element signature="e#2059#2071#0" expanded="true" />
+                <element signature="e#2948#2960#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testSolver.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/testSolver.cpp">
+      <file leaf-file-name="testAplication.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/testAplication.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="97" column="9" lean-forward="false" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Solver.hpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/include/Solver.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testLU.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/testLU.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2211">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="709">
+              <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,6 +124,14 @@
       <list>
         <option value="$PROJECT_DIR$/test/testSolver.cpp" />
         <option value="$PROJECT_DIR$/include/Solver.hpp" />
+        <option value="$PROJECT_DIR$/include/LUCrout.hpp" />
+        <option value="$PROJECT_DIR$/include/Aplicacion.hpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/Exception.hpp" />
+        <option value="$PROJECT_DIR$/include/bits/MatrixArithmetic.hpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/include/Aplication.hpp" />
+        <option value="$PROJECT_DIR$/test/testAplication.cpp" />
       </list>
     </option>
   </component>
@@ -123,9 +141,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="25" />
-    <option name="width" value="1366" />
+    <option name="width" value="683" />
     <option name="height" value="743" />
   </component>
   <component name="ProjectView">
@@ -179,6 +198,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tarea4" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -193,16 +214,16 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.tester">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="Proyecto2Analisis" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
     <configuration name="Proyecto2Analisis" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="Proyecto2Analisis" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="Proyecto2Analisis">
       <envs />
     </configuration>
-    <configuration name="anpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="anpi" CONFIG_NAME="Debug">
+    <configuration name="anpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="anpi" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="Proyecto2Analisis">
       <envs />
     </configuration>
-    <configuration name="benchmark" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="benchmark" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="benchmark">
+    <configuration name="benchmark" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="benchmark" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="Proyecto2Analisis">
       <envs />
     </configuration>
     <configuration name="tester" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto2Analisis" TARGET_NAME="tester" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto2Analisis" RUN_TARGET_NAME="tester">
@@ -227,26 +248,30 @@
       <option name="presentableId" value="Default" />
       <updated>1523834927580</updated>
       <workItem from="1523834929036" duration="68000" />
-      <workItem from="1523835021121" duration="1126000" />
+      <workItem from="1523835021121" duration="4731000" />
+      <workItem from="1524062459744" duration="3291000" />
+      <workItem from="1524182295490" duration="15769000" />
+      <workItem from="1524383457632" duration="11140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1194000" />
+    <option name="totallyTimeSpent" value="34999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23279649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36692914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23779528" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -254,7 +279,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -265,10 +289,45 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="24" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="52" column="76" lean-forward="false" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
+          <folding>
+            <element signature="e#108#120#0" expanded="false" />
+            <element signature="e#1036#1048#0" expanded="false" />
+            <element signature="e#2059#2071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testAplication.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1278">
+          <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -277,9 +336,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/testSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Solver.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2232">
+          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="6" />
+          <folding>
+            <element signature="e#806#818#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding>
+            <element signature="e#108#120#0" expanded="false" />
+            <element signature="e#1036#1048#0" expanded="false" />
+            <element signature="e#2059#2071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/testLU.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2211">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -287,8 +384,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/testSolver.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="1746">
           <caret line="97" column="9" lean-forward="false" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testLU.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -297,7 +402,128 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="e#806#818#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1009">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Solver.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="e#806#818#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testAllocator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="e#222#257#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Exception.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/bits/MatrixArithmetic.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2574">
+          <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
+          <folding>
+            <element signature="e#293#318#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Matrix.tpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7290">
+          <caret line="405" column="33" lean-forward="false" selection-start-line="405" selection-start-column="33" selection-end-line="405" selection-end-column="33" />
+          <folding>
+            <element signature="e#222#258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Matrix.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6606">
+          <caret line="367" column="0" lean-forward="false" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+          <folding>
+            <element signature="e#272#290#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/LUCrout.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testLU.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="117" column="8" lean-forward="false" selection-start-line="117" selection-start-column="8" selection-end-line="120" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="130" column="20" lean-forward="false" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
+          <folding>
+            <element signature="e#2059#2071#0" expanded="true" />
+            <element signature="e#2948#2960#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testAplication.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -4,7 +4,7 @@
  *
  * This file is part of the numerical analysis lecture CE3102 at TEC
  *
- * @Author: 
+ * @Author:
  * @Date  : 03.03.2018
  */
 
@@ -72,12 +72,12 @@ namespace anpi {
   /**
    * Decompose the matrix A into a lower triangular matrix L and an
    * upper triangular matrix U.  The matrices L and U are packed into
-   * a single matrix LU.  
+   * a single matrix LU.
    *
    * Crout's way of packing assumes a diagonal of
    * 1's in the U matrix.
    *
-   * @param[in] A a square matrix 
+   * @param[in] A a square matrix
    * @param[out] LU matrix encoding the L and U matrices
    * @param[out] permut permutation vector, holding the indices of the
    *             original matrix falling into the corresponding element.
@@ -157,140 +157,7 @@ namespace anpi {
       }
 
       LU[n-1][n-1] -= sum;
-
-
-/*
-      LU = A;
-      int n = A.rows();
-      std::vector<size_t > index (A.rows());
-
-      for(int i = 0; i < n; i++) { //relleno vector indice
-        index[i] = i;
-      }
-
-      T sum;
-
-      for(int j = 0; j < n; j++) {
-
-        for(int i = 0; i < j; i++) {
-          sum = LU[i][j];
-          for(int k = 0; k < i; k++) {
-            sum -= LU[i][k] * LU[k][j];
-          }
-          LU[i][j] = sum;
-        }
-
-        int bigI = j;
-
-        for(int i = j; i < n; i++) { //busco el mayor numero en la columna
-         
-          sum = LU[i][j];
-          for(int k = 0; k < j; k++) {
-            sum -= LU[i][k] * LU[k][j];
-          }
-          LU[i][j] = sum;
-
-          if(std::abs(LU[bigI][j]) < std::abs(LU[i][j])) { //cambio el indice de la fila
-            bigI = i;
-          }
-        }
-        if(bigI != j) { //si se encontro un pivote mayor se intercambian filas
-          T matrixTmp;
-          for(int k = 0; k < n; k++) { //intercambio fila en matriz LU
-            matrixTmp = LU[j][k];
-            LU[j][k] = LU [bigI][k];
-            LU[bigI][k] = matrixTmp;
-          }
-          size_t indexTmp;
-          indexTmp = index[j];    //intercambio en vector indice
-          index[j] = index[bigI];
-          index[bigI] = indexTmp;
-        }
-
-        if (LU[j][j] == 0) {
-          throw anpi::Exception("Crout: zero division");
-        }
-
-        if(j < (n-1)) {
-          sum = T(1)/(LU[j][j]);
-          for(int i = j+1; i < n; i++) {
-            LU[i][j] *= sum;
-          }
-        }
-
-
-      }
-
-      permut = index;
-
-*/
-/*
-      LU = A;
-      int n = A.rows();
-      std::vector<size_t > index (A.rows());
-
-      for(int i = 0; i < index.size(); i++) { //relleno vector indice
-        index[i] = i;
-      }
-
-      for(int j = 0; j < n-1; j++) {
-        int bigI = j;
-        for(int i = j; i < n; i++) { //busco el mayor numero en la columna
-          if(std::abs(LU[bigI][j]) < std::abs(LU[i][j])) { //cambio el indice de la fila
-            bigI = i;
-          }
-        }
-        if(bigI != j) { //si se encontro un pivote mayor se intercambian filas
-          T matrixTmp;
-          for(int k = 0; k < n; k++) { //intercambio fila en matriz LU
-            matrixTmp = LU[j][k];
-            LU[j][k] = LU [bigI][k];
-            LU[bigI][k] = matrixTmp;
-          }
-          int indexTmp;
-          indexTmp = index[j];    //intercambio en vector indice
-          index[j] = index[bigI];
-          index[bigI] = indexTmp;
-        }
-      }
-
-      permut = index;
-
-      for(int j = 1; j < n; j++) {
-        LU[0][j] /= LU[0][0];
-      }
-
-      T sum;
-
-      for (int j = 1; j < n-1; j++) {
-
-        for (int i = j; i < n; i++) {
-          sum = T(0);
-          for (int k = 0; k < j; k++) {
-            sum += (LU[i][k] * LU[k][j]);
-          }
-          LU[i][j] -= sum;
-        }
-        for (int i = j + 1; i < n; i++) {
-          sum = T(0);
-          for(int k = 0; k < j; k++) {
-            sum += (LU[j][k] * LU[k][i]);
-          }
-          if (LU[j][j] == 0) {
-            throw anpi::Exception("Crout: zero division");
-          }
-          LU[j][i] = (LU[j][i] - sum) / LU[j][j];
-        }
-      }
-
-      sum = T(0);
-
-      for(int k = 0; k < n - 1; k++) {
-        sum += LU[n-1][k] * LU[k][n-1];
-      }
-
-      LU[n-1][n-1] -= sum;
-*/
+      
     }
     else {
       throw anpi::Exception("Crout: invalid decomposition matrix size");
@@ -301,4 +168,3 @@ namespace anpi {
 }
 
 #endif
-
