@@ -31,11 +31,11 @@
 #include "LUDoolittle.hpp"
 
 
-BOOST_AUTO_TEST_SUITE( Matrix )
+BOOST_AUTO_TEST_SUITE( Matrix1 )
 
 /// Benchmark for addition operations
     template<typename T>
-    class benchAdd {
+    class benchFill {
     protected:
         /// Maximum allowed size for the square matrices
         const size_t _maxSize;
@@ -48,15 +48,10 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         anpi::Matrix<T> _b;
         anpi::Matrix<T> _c;
 
-        ///CREO EL ALLOCATOR
-        typedef anpi::aligned_allocator<float> aalloc;
-
-        anpi::Matrix<T, aalloc> _aAlloc;
-        anpi::Matrix<T, aalloc> _bAlloc;
 
     public:
         /// Construct
-        benchAdd(const size_t maxSize)
+        benchFill(const size_t maxSize)
                 : _maxSize(maxSize),_data(maxSize,maxSize,anpi::DoNotInitialize) {
 
             size_t idx=0;
@@ -77,70 +72,65 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
 /// Provide the evaluation method for in-place addition
     template<typename T>
-    class benchAddInPlaceFallback : public benchAdd<T> {
+    class benchFillInPlaceFallback : public benchFill<T> {
     public:
         /// Constructor
-        benchAddInPlaceFallback(const size_t n) : benchAdd<T>(n) { }
+        benchFillInPlaceFallback(const size_t n) : benchFill<T>(n) { }
 
         // Evaluate add in-place
         inline void eval() {
-            std::vector<size_t> p;
-            anpi::fallback1::luDoolittle(this->_a,this->_b,p);
+            anpi::fallback::fill(float(2),this->_a);
         }
     };
 
 /// Provide the evaluation method for on-copy addition
     template<typename T>
-    class benchAddOnCopyFallback : public benchAdd<T> {
+    class benchFillOnCopyFallback : public benchFill<T> {
     public:
         /// Constructor
-        benchAddOnCopyFallback(const size_t n) : benchAdd<T>(n) { }
+        benchFillOnCopyFallback(const size_t n) : benchFill<T>(n) { }
 
         // Evaluate add on-copy
         inline void eval() {
-            std::vector<size_t> p;
-            //anpi::luCrout(this->_a,this->_b,p);
-            anpi::SIMD1::luDoolittle(this->_aAlloc,this->_bAlloc,p);
-
+            anpi::simd::fill(float(2),this->_a);
         }
     };
 
 /**
  * Instantiate and test the methods of the Matrix class
  */
-    BOOST_AUTO_TEST_CASE( LU ) {
+    BOOST_AUTO_TEST_CASE( FILL ) {
 
         std::vector<size_t> sizes = {  24,  32,  48,  64,
                                        96, 128, 192, 256,
                                        384, 512, 768,1024,
                                        1536,2048,3072,4096};
 
-
         const size_t n=sizes.back();
         const size_t repetitions=100;
         std::vector<anpi::benchmark::measurement> times;
 
         {
-            benchAddInPlaceFallback<float> baip(n);
+            benchFillInPlaceFallback<float> baip(n);
 
             // Measure in place add
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
-            ::anpi::benchmark::write("LU Doolittle normal",times);
-            ::anpi::benchmark::plotRange(times,"LU Doolittle normal","b");
+            ::anpi::benchmark::write("Fill sin SIMD",times);
+            ::anpi::benchmark::plotRange(times,"Fill sin SIMD","b");
         }
 
         {
-            benchAddOnCopyFallback<float> baip(n);
+            benchFillOnCopyFallback<float> baip(n);
 
             // Measure in place add
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
-            ::anpi::benchmark::write("LU Doolittle SIMD",times);
-            ::anpi::benchmark::plotRange(times,"LU Doolittle SIMD","r");
+            ::anpi::benchmark::write("Fill con SIMD",times);
+            ::anpi::benchmark::plotRange(times,"Fill con SIMD","r");
         }
 
-        ::anpi::benchmark::show();
+        //::anpi::benchmark::show();
     }
 
 BOOST_AUTO_TEST_SUITE_END()
