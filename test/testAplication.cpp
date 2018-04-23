@@ -121,8 +121,72 @@ BOOST_AUTO_TEST_CASE( VectorFiller ) {
     size_t rows = 3;
     size_t cols = 3;
     anpi::vectorFiller(rows,cols, 0, 0, 2, 2, b);
-    std::vector<float> v {1,0,0,0,0,0,0,0,-1};
+    std::vector<float> v { 1, 0, 0, 0, 0, 0, 0, 0,-1,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0};
     BOOST_CHECK(b == v);
+
+    rows = 3;
+    cols = 4;
+    anpi::vectorFiller(rows,cols, 2, 0, 1, 2, b);
+    v = { 0, 0, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    BOOST_CHECK(b == v);
+
+    try {
+      anpi::vectorFiller(rows,cols, 3, 0, 1, 2, b);
+      BOOST_CHECK_MESSAGE(false,"Vector Filler index out of bounds properly no properly catched");
+    }
+    catch(anpi::Exception& exc) {
+      BOOST_CHECK_MESSAGE(true,"Vector Filler index out of bounds properly catched");
+    }
+
+    try {
+      anpi::vectorFiller(rows,cols, 2, -1, 1, 2, b);
+      BOOST_CHECK_MESSAGE(false,"Vector Filler index out of bounds properly no properly catched");
+    }
+    catch(anpi::Exception& exc) {
+      BOOST_CHECK_MESSAGE(true,"Vector Filler index out of bounds properly catched");
+    }
+
+    try {
+      anpi::vectorFiller(rows,cols, 0, 0, 4, 2, b);
+      BOOST_CHECK_MESSAGE(false,"Vector Filler index out of bounds properly no properly catched");
+    }
+    catch(anpi::Exception& exc) {
+      BOOST_CHECK_MESSAGE(true,"Vector Filler index out of bounds properly catched");
+    }
+
+    try {
+      anpi::vectorFiller(rows,cols, 1, 0, 1, 4, b);
+      BOOST_CHECK_MESSAGE(false,"Vector Filler index out of bounds properly no properly catched");
+    }
+    catch(anpi::Exception& exc) {
+      BOOST_CHECK_MESSAGE(true,"Vector Filler index out of bounds properly catched");
+    }
+
 }
+
+BOOST_AUTO_TEST_CASE( MapCreator ) {
+    anpi::Matrix<float> A;
+    anpi::mapCreator(A);
+}
+
+BOOST_AUTO_TEST_CASE( ResistVector ) {
+    anpi::Matrix<float> map = { { 1, 0, 1, 0},
+                              { 0, 0, 0, 0},
+                              { 0, 1, 0, 1},
+                              { 0, 0, 1, 1} };
+    std::vector<float> rvect;
+    anpi::resistVector(map,rvect);
+    std::vector<float> RVECT = {1000000, 1000000, 1000000,
+                                1000000, 1, 1000000, 1,
+                                1,1,1,
+                                1,1000000,1,1000000,
+                                1000000, 1000000, 1000000,
+                                1,1000000,1000000,1000000,
+                                1,1000000,1000000};
+    BOOST_CHECK(rvect == RVECT);
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -56,21 +56,10 @@ CMAKE_BINARY_DIR = /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -81,13 +70,24 @@ edit_cache/fast: edit_cache
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,21 +122,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/anpi.dir/rule:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/anpi.dir/rule
-.PHONY : src/CMakeFiles/anpi.dir/rule
-
-# Convenience name for target.
-anpi: src/CMakeFiles/anpi.dir/rule
-
-.PHONY : anpi
-
-# fast build rule for target.
-anpi/fast:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/build
-.PHONY : anpi/fast
-
-# Convenience name for target.
 src/CMakeFiles/Proyecto2Analisis.dir/rule:
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/Proyecto2Analisis.dir/rule
 .PHONY : src/CMakeFiles/Proyecto2Analisis.dir/rule
@@ -151,14 +136,29 @@ Proyecto2Analisis/fast:
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Proyecto2Analisis.dir/build.make src/CMakeFiles/Proyecto2Analisis.dir/build
 .PHONY : Proyecto2Analisis/fast
 
+# Convenience name for target.
+src/CMakeFiles/anpi.dir/rule:
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/anpi.dir/rule
+.PHONY : src/CMakeFiles/anpi.dir/rule
+
+# Convenience name for target.
+anpi: src/CMakeFiles/anpi.dir/rule
+
+.PHONY : anpi
+
+# fast build rule for target.
+anpi/fast:
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/build
+.PHONY : anpi/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.o
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Proyecto2Analisis.dir/build.make src/CMakeFiles/Proyecto2Analisis.dir/main.cpp.o
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -167,8 +167,8 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.i
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Proyecto2Analisis.dir/build.make src/CMakeFiles/Proyecto2Analisis.dir/main.cpp.i
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -177,8 +177,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.s
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Proyecto2Analisis.dir/build.make src/CMakeFiles/Proyecto2Analisis.dir/main.cpp.s
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -187,11 +187,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... anpi"
 	@echo "... test"
 	@echo "... Proyecto2Analisis"
+	@echo "... rebuild_cache"
+	@echo "... anpi"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

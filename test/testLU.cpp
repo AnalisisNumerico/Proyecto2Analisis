@@ -158,6 +158,7 @@ BOOST_AUTO_TEST_CASE(Doolittle) {
                             anpi::unpackDoolittle<float>);
   anpi::test::luTest<double>(anpi::luDoolittle<double>,
                              anpi::unpackDoolittle<double>);
+
 }
 
 BOOST_AUTO_TEST_CASE(UnpackCrout) {

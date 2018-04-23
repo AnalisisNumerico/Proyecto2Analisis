@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -67,27 +67,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,19 +122,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named anpi
-
-# Build rule for target.
-anpi: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 anpi
-.PHONY : anpi
-
-# fast build rule for target.
-anpi/fast:
-	$(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/build
-.PHONY : anpi/fast
-
-#=============================================================================
 # Target rules for targets named Proyecto2Analisis
 
 # Build rule for target.
@@ -146,6 +133,19 @@ Proyecto2Analisis: cmake_check_build_system
 Proyecto2Analisis/fast:
 	$(MAKE) -f src/CMakeFiles/Proyecto2Analisis.dir/build.make src/CMakeFiles/Proyecto2Analisis.dir/build
 .PHONY : Proyecto2Analisis/fast
+
+#=============================================================================
+# Target rules for targets named anpi
+
+# Build rule for target.
+anpi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 anpi
+.PHONY : anpi
+
+# fast build rule for target.
+anpi/fast:
+	$(MAKE) -f src/CMakeFiles/anpi.dir/build.make src/CMakeFiles/anpi.dir/build
+.PHONY : anpi/fast
 
 #=============================================================================
 # Target rules for targets named tester
@@ -180,10 +180,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... anpi"
+	@echo "... test"
 	@echo "... Proyecto2Analisis"
+	@echo "... anpi"
 	@echo "... tester"
 	@echo "... benchmark"
 .PHONY : help

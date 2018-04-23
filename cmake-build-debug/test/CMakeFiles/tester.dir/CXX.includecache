@@ -17,6 +17,8 @@ HasType.hpp
 ../include/Aplication.hpp
 Matrix.hpp
 ../include/Matrix.hpp
+opencv2/opencv.hpp
+-
 
 ../include/Exception.hpp
 exception

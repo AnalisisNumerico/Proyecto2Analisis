@@ -2,6 +2,7 @@
 #define ANPI_APLICACION_HPP
 
 #include "Matrix.hpp"
+#include <opencv2/opencv.hpp>
 
 namespace anpi {
 
@@ -43,7 +44,7 @@ namespace anpi {
   template<typename T>
   void inverseMapper(const size_t rows,
                      const size_t cols,
-                     int             x,
+                     const int&      x,
                      int&            n,
                      int&            m,
                      int&            i,
@@ -127,11 +128,45 @@ namespace anpi {
       throw anpi::Exception("anpi::vector filler error: Index out of bounds");
     }
     else {
-      std::vector<T> v(rows*cols);
+      std::vector<T> v(2*rows*cols);
       v[cols * n + m] = T( 1);
       v[cols * i + j] = T(-1);
       b = v;
     }
+  }
+
+  template<typename T>
+  void mapCreator(anpi::Matrix<T>& A) {
+    cv::Mat image = cv::imread("/home/jeanpaul/Downloads/45.png",0);
+    anpi::Matrix<T> a(image.rows,image.cols);
+    int pixelColor;
+    for (int x = 0;x < image.rows; x++) {
+      for (int y = 0; y < image.cols; y++) {
+        pixelColor = image.at<uchar>(x,y);
+        if(pixelColor < 127) {
+          A[x][y] = T(0);
+        }
+        else {
+          A[x][y] = T(1);
+        }
+      }
+      std::cout << std::endl;
+    }
+    A = a;
+  }
+
+  template<typename T>
+  void resistVector(const anpi::Matrix<T>&          map,
+                    std::vector<T>&        resistVector) {
+    std::vector<T> rVec(2 * map.rows() * map.cols() - (map.rows() + map.cols()),T(1));
+    int n,m,i,j;
+    for(int k = 0; k < rVec.size(); k++) {
+      anpi::inverseMapper<T>(map.rows(),map.cols(),k,n,m,i,j);
+      if(map[n][m] == 1 || map[i][j] == 1) {
+        rVec[k] = T(1000000);
+      }
+    }
+    resistVector = rVec;
   }
 
 }//anpi
