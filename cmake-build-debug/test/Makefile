@@ -244,33 +244,6 @@ testMatrix.cpp.s:
 	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/testMatrix.cpp.s
 .PHONY : testMatrix.cpp.s
 
-testQR.o: testQR.cpp.o
-
-.PHONY : testQR.o
-
-# target to build an object file
-testQR.cpp.o:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/testQR.cpp.o
-.PHONY : testQR.cpp.o
-
-testQR.i: testQR.cpp.i
-
-.PHONY : testQR.i
-
-# target to preprocess a source file
-testQR.cpp.i:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/testQR.cpp.i
-.PHONY : testQR.cpp.i
-
-testQR.s: testQR.cpp.s
-
-.PHONY : testQR.s
-
-# target to generate assembly for a file
-testQR.cpp.s:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/testQR.cpp.s
-.PHONY : testQR.cpp.s
-
 testSolver.o: testSolver.cpp.o
 
 .PHONY : testSolver.o
@@ -320,9 +293,6 @@ help:
 	@echo "... testMatrix.o"
 	@echo "... testMatrix.i"
 	@echo "... testMatrix.s"
-	@echo "... testQR.o"
-	@echo "... testQR.i"
-	@echo "... testQR.s"
 	@echo "... testSolver.o"
 	@echo "... testSolver.i"
 	@echo "... testSolver.s"

@@ -73,6 +73,8 @@ cassert
 -
 memory
 -
+vector
+-
 initializer_list
 -
 AnpiConfig.hpp
@@ -89,6 +91,10 @@ bits/MatrixArithmetic.hpp
 ../include/bits/MatrixArithmetic.hpp
 Exception.hpp
 ../include/Exception.hpp
+Intrinsics.hpp
+../include/Intrinsics.hpp
+type_traits
+-
 
 ../include/PlotPy.hpp
 python2.7/Python.h
@@ -111,6 +117,8 @@ type_traits
 -
 iostream
 -
+vector
+-
 
 /home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
 chrono
@@ -128,11 +136,7 @@ Matrix.hpp
 PlotPy.hpp
 -
 
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
-boost/test/unit_test.hpp
--
-
-/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp
+/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkLU.cpp
 boost/test/unit_test.hpp
 -
 iostream
@@ -153,4 +157,10 @@ LUCrout.hpp
 /home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/LUCrout.hpp
 LUDoolittle.hpp
 /home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/LUDoolittle.hpp
+
+/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
+boost/test/unit_test.hpp
+-
+
+/home/ger534/CLionProjects/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp
 

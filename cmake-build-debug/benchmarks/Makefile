@@ -136,6 +136,33 @@ benchmark/fast:
 	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/build
 .PHONY : benchmark/fast
 
+benchmarkLU.o: benchmarkLU.cpp.o
+
+.PHONY : benchmarkLU.o
+
+# target to build an object file
+benchmarkLU.cpp.o:
+	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.o
+.PHONY : benchmarkLU.cpp.o
+
+benchmarkLU.i: benchmarkLU.cpp.i
+
+.PHONY : benchmarkLU.i
+
+# target to preprocess a source file
+benchmarkLU.cpp.i:
+	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.i
+.PHONY : benchmarkLU.cpp.i
+
+benchmarkLU.s: benchmarkLU.cpp.s
+
+.PHONY : benchmarkLU.s
+
+# target to generate assembly for a file
+benchmarkLU.cpp.s:
+	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.s
+.PHONY : benchmarkLU.cpp.s
+
 benchmarkMain.o: benchmarkMain.cpp.o
 
 .PHONY : benchmarkMain.o
@@ -200,6 +227,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... benchmark"
+	@echo "... benchmarkLU.o"
+	@echo "... benchmarkLU.i"
+	@echo "... benchmarkLU.s"
 	@echo "... benchmarkMain.o"
 	@echo "... benchmarkMain.i"
 	@echo "... benchmarkMain.s"

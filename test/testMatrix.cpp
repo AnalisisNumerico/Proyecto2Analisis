@@ -280,6 +280,7 @@ void testArithmetic() {
     M r = { {-4},{4} };
 
     M c=a*b;
+
      BOOST_CHECK( c==r );
 
     c=M{ {1,2,3},{ 6, 5, 4} } * b;

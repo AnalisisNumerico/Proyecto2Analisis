@@ -29,17 +29,6 @@ test/CMakeFiles/tester.dir/testMatrix.cpp.o
  ../include/Matrix.tpp
  ../include/bits/MatrixArithmetic.hpp
  /home/ger534/CLionProjects/Proyecto2Analisis/test/testMatrix.cpp
-test/CMakeFiles/tester.dir/testQR.cpp.o
- ../include/Allocator.hpp
- ../include/AnpiConfig.hpp
- ../include/Exception.hpp
- ../include/HasType.hpp
- ../include/Intrinsics.hpp
- ../include/Matrix.hpp
- ../include/Matrix.tpp
- ../include/bits/MatrixArithmetic.hpp
- ../include/qr.hpp
- /home/ger534/CLionProjects/Proyecto2Analisis/test/testQR.cpp
 test/CMakeFiles/tester.dir/testSolver.cpp.o
  ../include/Allocator.hpp
  ../include/AnpiConfig.hpp

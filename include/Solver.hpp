@@ -11,7 +11,7 @@ namespace anpi {
   inline void lu(const anpi::Matrix<T>& A,
                  anpi::Matrix<T> LU,
                  std::vector<size_t>& p) {
-    anpi::luDoolittle(A,LU,p);
+    anpi::LUDoolittle1::luDoolittle(A,LU,p);
   }
 
   /** method used to create  the permutation matrix given a
@@ -97,7 +97,7 @@ namespace anpi {
 
     anpi::Matrix<T> L;
     anpi::Matrix<T> U;
-    anpi::unpackDoolittle(LU,L,U);
+    anpi::LUDoolittle1::unpackDoolittle(LU,L,U);
 
     anpi::Matrix<T> P;
     anpi::permutationMatrix(p,P);

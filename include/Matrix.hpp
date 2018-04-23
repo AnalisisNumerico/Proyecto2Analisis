@@ -15,6 +15,7 @@
 #include <cstring>
 #include <cassert>
 #include <memory>
+#include <vector>
 
 #include <initializer_list>
 
@@ -117,7 +118,7 @@ namespace anpi
   public:
 
     /**
-     * @name Constructors
+     * @name ConstructorsAlfredo
      */
     //@{
     Matrix();

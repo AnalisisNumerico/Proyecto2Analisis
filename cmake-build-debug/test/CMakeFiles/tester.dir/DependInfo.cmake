@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ger534/CLionProjects/Proyecto2Analisis/test/testLU.cpp" "/home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug/test/CMakeFiles/tester.dir/testLU.cpp.o"
   "/home/ger534/CLionProjects/Proyecto2Analisis/test/testMain.cpp" "/home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug/test/CMakeFiles/tester.dir/testMain.cpp.o"
   "/home/ger534/CLionProjects/Proyecto2Analisis/test/testMatrix.cpp" "/home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug/test/CMakeFiles/tester.dir/testMatrix.cpp.o"
-  "/home/ger534/CLionProjects/Proyecto2Analisis/test/testQR.cpp" "/home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug/test/CMakeFiles/tester.dir/testQR.cpp.o"
   "/home/ger534/CLionProjects/Proyecto2Analisis/test/testSolver.cpp" "/home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug/test/CMakeFiles/tester.dir/testSolver.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

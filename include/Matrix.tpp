@@ -10,7 +10,8 @@
 
 #include "bits/MatrixArithmetic.hpp"
 #include "Exception.hpp"
-
+#include "Intrinsics.hpp"
+#include <type_traits>
 
 namespace anpi{
 
@@ -315,60 +316,68 @@ namespace anpi{
   Matrix<T,Alloc>::_get_allocator() const noexcept {
     return *static_cast<const allocator_type*>(&this->_impl);
   }
-  
-  template<typename T,class Alloc>
-  void Matrix<T,Alloc>::fill(const T val) {
-    T* end = this->_impl._data + ( this->_impl._rows * this->_impl._dcols );
-    for (T* ptr = this->_impl._data;ptr!=end;++ptr) {
-      *ptr = val;
+
+    template<typename T,class Alloc>
+    void Matrix<T,Alloc>::fill(const T val) {
+
+        anpi::aimpl::fill(val, *this);
+
+
+        // ACCELERATE ME!
     }
 
-    // ACCELERATE ME!
-  }
+    template<typename T,class Alloc>
+    void Matrix<T,Alloc>::fill(const std::initializer_list< std::initializer_list<value_type> >& lst) {
 
-  template<typename T,class Alloc>
-  void Matrix<T,Alloc>::fill(const T* mem) {
-    std::memcpy(this->_impl._data,mem,sizeof(T)*this->_impl.tentries());
-  }
+        const size_t r = lst.size();
+        const size_t c = (r>0u) ? lst.begin()->size() : 0u;
 
-  template<typename T,class Alloc>
-  template<class OAlloc>
-  void Matrix<T,Alloc>::fill(const Matrix<T,OAlloc>& _other) {
+        assert(r==rows() && "Check number of rows");
+        assert(c==cols() && "Check number of cols");
 
-    // we can only copy this number of rows
-    const size_t r=std::min(_other.rows(),this->rows());
+        pointer rowPtr = this->_impl._data;
+        for (const auto& r : lst) {
 
-    // we can only copy this number of columns
-    const size_t c=std::min(_other.cols(),this->cols());
+            pointer ptr=rowPtr;
 
-    // copy each row separately, ignoring the differences of sizes
-    for (size_t i=0u;i<r;++i) {
-      std::memcpy(this->operator[](i),_other[i],sizeof(value_type)*c);
+            for (const auto& c : r) {
+
+                *ptr++ = c;
+
+            }
+
+            rowPtr += this->_impl._dcols;
+
+        }
     }
-  }
 
-  
-
-  template<typename T,class Alloc>
-  void Matrix<T,Alloc>::
-  fill(const std::initializer_list< std::initializer_list<value_type> >& lst) {
-
-    const size_t r = lst.size();
-    const size_t c = (r>0u) ? lst.begin()->size() : 0u;
-    
-    assert(r==rows() && "Check number of rows");
-    assert(c==cols() && "Check number of cols");
-
-    pointer rowPtr = this->_impl._data;
-    for (const auto& r : lst) {
-      pointer ptr=rowPtr;
-      
-      for (const auto& c : r) {
-        *ptr++ = c;
-      }
-      rowPtr += this->_impl._dcols;
+    template<typename T,class Alloc>
+    void Matrix<T,Alloc>::fill(const T* mem) {
+        std::memcpy(this->_impl._data,mem,sizeof(T)*this->_impl.tentries());
     }
-  }
+
+
+    template<typename T,class Alloc>
+    template<class OAlloc>
+    void Matrix<T,Alloc>::fill(const Matrix<T,OAlloc>& _other) {
+
+        // we can only copy this number of rows
+        const size_t r=std::min(_other.rows(),this->rows());
+
+        // we can only copy this number of columns
+        const size_t c=std::min(_other.cols(),this->cols());
+
+        // copy each row separately, ignoring the differences of sizes
+        for (size_t i=0u;i<r;++i) {
+            std::memcpy(this->operator[](i),_other[i],sizeof(value_type)*c);
+
+        }
+    }
+
+
+
+
+
 
   template<typename T,class Alloc>
   std::vector< typename Matrix<T,Alloc>::value_type >
@@ -400,13 +409,7 @@ namespace anpi{
     return *this;
   }
 
-  template<typename T,class Alloc>
-  Matrix<T,Alloc>& Matrix<T,Alloc>::operator*=(const std::vector<T>& other) {
 
-    ::anpi::aimpl::product(*this,other);
-
-    return *this;
-  }
 
   template<typename T,class Alloc>
   Matrix<T,Alloc> operator+(const Matrix<T,Alloc>& a,
@@ -432,6 +435,8 @@ namespace anpi{
 
   // TODO: Solucionar en la Tarea 04 (faltan otros operadores)
 
+
+
   template<typename T,class Alloc>
   Matrix<T,Alloc>& Matrix<T,Alloc>::operator*=(const Matrix<T,Alloc>& other) {
 
@@ -444,33 +449,60 @@ namespace anpi{
     }
   }
 
+
+    template<typename T,class Alloc>
+    Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a,
+                              const Matrix<T,Alloc>& b) {
+        if (a.cols() == b.rows()) {
+            //Matrix<T,Alloc> c(a.rows(),b.cols());
+            Matrix<T,Alloc> c(a.rows(),a.cols(),anpi::DoNotInitialize);
+
+            ::anpi::aimpl::product(a,b,c);
+            return c;
+        }
+
+        else {
+            throw anpi::Exception("Invalid multiplication operands size");
+        }
+
+    }
+
   template<typename T,class Alloc>
   Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a, const std::vector<T>& b) {
 
-    assert( (a.cols()==b.size()) );
-    Matrix<T,Alloc> c(a.rows(),1);
-    ::anpi::aimpl::product(a,b,c);
+      assert( (a.cols()==b.size()) );
+      Matrix<T,Alloc> c(a.rows(),1);
+      ::anpi::aimpl::product(a,b,c);
       return c;
 
   }
 
 
 
-
     template<typename T,class Alloc>
-    Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a,
-                              const Matrix<T,Alloc>& b) {
-      if (a.cols() == b.rows()) {
-        Matrix<T,Alloc> c(a.rows(),b.cols());
-        ::anpi::aimpl::product(a,b,c);
-        return c;
-      }
+    Matrix<T,Alloc>& Matrix<T,Alloc>::operator*=(const std::vector<T>& other) {
 
-      else {
-        throw anpi::Exception("Invalid multiplication operands size");
-      }
+        ::anpi::aimpl::product(*this,other);
 
+        return *this;
     }
+
+
+///Codigo de alvarado
+    /*
+    template<typename T, class Alloc>
+    std::vector<T> operator*(const Matrix<T, Alloc>& a, const std::vector<T>& b){
+        assert(a.cols==b.size());
+        std::vector<T> c (a.rows());
+        for(size_t i=0;i<c.size();++i){
+            T sum=T();
+            for(size_t k=0;k<c.size();++k){
+                sum+=a(i,k)*b[k];
+            }
+            c[i]=sum;
+        }
+        return c;
+    }*/
 
   
 } // namespace ANPI

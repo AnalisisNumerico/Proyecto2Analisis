@@ -73,6 +73,8 @@ cassert
 -
 memory
 -
+vector
+-
 initializer_list
 -
 AnpiConfig.hpp
@@ -89,6 +91,10 @@ bits/MatrixArithmetic.hpp
 ../include/bits/MatrixArithmetic.hpp
 Exception.hpp
 ../include/Exception.hpp
+Intrinsics.hpp
+../include/Intrinsics.hpp
+type_traits
+-
 
 ../include/Solver.hpp
 LUDoolittle.hpp
@@ -101,20 +107,8 @@ type_traits
 -
 iostream
 -
-
-../include/qr.hpp
-cmath
+vector
 -
-limits
--
-functional
--
-iostream
--
-Exception.hpp
-../include/Exception.hpp
-Matrix.hpp
-../include/Matrix.hpp
 
 /home/ger534/CLionProjects/Proyecto2Analisis/test/testAllocator.cpp
 boost/test/unit_test.hpp
@@ -154,22 +148,6 @@ Matrix.hpp
 Allocator.hpp
 /home/ger534/CLionProjects/Proyecto2Analisis/test/Allocator.hpp
 iostream
--
-
-/home/ger534/CLionProjects/Proyecto2Analisis/test/testQR.cpp
-boost/test/unit_test.hpp
--
-qr.hpp
-/home/ger534/CLionProjects/Proyecto2Analisis/test/qr.hpp
-iostream
--
-exception
--
-cstdlib
--
-functional
--
-cmath
 -
 
 /home/ger534/CLionProjects/Proyecto2Analisis/test/testSolver.cpp
