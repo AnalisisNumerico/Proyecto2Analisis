@@ -84,7 +84,7 @@ BOOST_AUTO_TEST_CASE( InverseMapper ) {
   }
 
 }
-
+/*
 BOOST_AUTO_TEST_CASE( MatrixFiller ) {
 
   anpi::Matrix<float> a;
@@ -114,22 +114,20 @@ BOOST_AUTO_TEST_CASE( MatrixFiller ) {
   BOOST_CHECK(a == A);
 
 }
-
+*/
 BOOST_AUTO_TEST_CASE( VectorFiller ) {
 
     std::vector<float> b;
     size_t rows = 3;
     size_t cols = 3;
     anpi::vectorFiller(rows,cols, 0, 0, 2, 2, b);
-    std::vector<float> v { 1, 0, 0, 0, 0, 0, 0, 0,-1,
-                           0, 0, 0, 0, 0, 0, 0, 0, 0};
+    std::vector<float> v { 1, 0, 0, 0, 0, 0, 0, 0,-1, 0, 0, 0};
     BOOST_CHECK(b == v);
 
     rows = 3;
     cols = 4;
     anpi::vectorFiller(rows,cols, 2, 0, 1, 2, b);
-    v = { 0, 0, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    v = { 0, 0, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0};
     BOOST_CHECK(b == v);
 
     try {
@@ -179,12 +177,12 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
     std::vector<float> rvect;
     anpi::resistVector(map,rvect);
     std::vector<float> RVECT = {1000000, 1000000, 1000000,
-                                1000000, 1, 1000000, 1,
-                                1,1,1,
-                                1,1000000,1,1000000,
+                                1000000,       1, 1000000,       1,
+                                      1,       1,       1,
+                                      1, 1000000,       1, 1000000,
                                 1000000, 1000000, 1000000,
-                                1,1000000,1000000,1000000,
-                                1,1000000,1000000};
+                                      1, 1000000, 1000000, 1000000,
+                                      1, 1000000, 1000000};
     BOOST_CHECK(rvect == RVECT);
 }
 

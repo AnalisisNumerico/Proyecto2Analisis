@@ -81,7 +81,7 @@ namespace anpi {
     }
     
   }
-
+/*
   template<typename T>
   void matrixFiller(const size_t     rows,
                     const size_t     cols,
@@ -112,7 +112,7 @@ namespace anpi {
     }
     A = a;
   }
-
+*/
   template<typename T>
   void vectorFiller(const size_t rows,
                     const size_t cols,
@@ -128,7 +128,7 @@ namespace anpi {
       throw anpi::Exception("anpi::vector filler error: Index out of bounds");
     }
     else {
-      std::vector<T> v(2*rows*cols);
+      std::vector<T> v(2 * rows * cols - (rows + cols));
       v[cols * n + m] = T( 1);
       v[cols * i + j] = T(-1);
       b = v;
@@ -167,6 +167,108 @@ namespace anpi {
       }
     }
     resistVector = rVec;
+  }
+
+  /**
+   *
+   * @tparam T
+   * @param rows Resistive grid rows
+   * @param cols Resistive grid cols
+   * @param A    Matrix to be filled
+   */
+  template<typename T>
+  void nodos(const size_t     rows,
+             const size_t     cols,
+             anpi::Matrix<T>&    A) {
+
+    if (A.rows() != (2 * rows * cols - (rows + cols)) &&
+        A.cols() != (2 * rows * cols - (rows + cols))) {
+      throw anpi::Exception("anpi::nodos not matching sizes");
+    }
+
+    else {
+      int count = 0;
+      int j;
+      for (int n = 0; n < rows; n++) {
+        for (int m = 0; m < cols; m++) {
+          if (m - 1 >= 0) {
+            anpi::mapper<float>(rows, cols, n, m, n, m - 1, j);
+            A[count][j] = T(1);
+          }
+          if (n - 1 >= 0) {
+            anpi::mapper<float>(rows, cols, n, m, n - 1, m, j);
+            A[count][j] = T(1);
+          }
+          if (m + 1 < cols) {
+            anpi::mapper<float>(rows, cols, n, m, n, m + 1, j);
+            A[count][j] = T(-1);
+          }
+          if (n + 1 < rows) {
+            anpi::mapper<float>(rows, cols, n, m, n + 1, m, j);
+            A[count][j] = T(-1);
+          }
+          count++;
+        }
+      }
+    }
+  }
+
+  template<typename T>
+  void mallas(const size_t rows,
+              const size_t cols,
+              const std::vector<T> &resistVector,
+              const std::vector<T> &b,
+              anpi::Matrix<T> &A) {
+
+    int size = (2 * rows * cols - (rows + cols));
+
+    if (A.rows() != size &&
+        A.cols() != size &&
+        resistVector != size &&
+        b != size) {
+      throw anpi::Exception("anpi::mallas not matching sizes");
+    } else {
+
+      int x, y;
+      bool first = true;
+
+      for (int n = 0; n < rows - 1; n++) {
+        for (int m = 0; m < cols - 1; m++) {
+          if (first) {
+            // reemplaza un ecuacion de nodo
+            if (b[0] == 0) { //nodo superior izquierdo
+              x = 0;
+            } else if (b[cols - 1] == 0) { // nodo superior derecho
+              x = cols - 1;
+            } else { // nodo inferior derecho
+              x = (rows * cols) - 1;
+            }
+
+          }
+          mapper<T>(rows, cols, n, m, n, m + 1, y);
+          A[x][y] = resistVector[y] * T(1);
+
+          mapper<T>(rows, cols, n, m + 1, n + 1, m + 1, y);
+          A[x][y] = resistVector[y] * T(1);
+
+          mapper<T>(rows, cols, n + 1, m + 1, n + 1, m, y);
+          A[x][y] = resistVector[y] * T(-1);
+
+          mapper<T>(rows, cols, n + 1, m, n, m, y);
+          A[x][y] = resistVector[y] * T(-1);
+
+          x++;
+
+          if (first) {
+            x = rows * cols;
+            first = false;
+          }
+
+        }
+      }
+
+    }
+
   }
 
 }//anpi
