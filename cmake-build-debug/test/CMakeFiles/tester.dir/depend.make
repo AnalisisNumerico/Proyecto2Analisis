@@ -11,8 +11,10 @@ test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Aplication.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Exception.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/HasType.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Intrinsics.hpp
+test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/LUDoolittle.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Matrix.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Matrix.tpp
+test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/Solver.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../include/bits/MatrixArithmetic.hpp
 test/CMakeFiles/tester.dir/testAplication.cpp.o: ../test/testAplication.cpp
 

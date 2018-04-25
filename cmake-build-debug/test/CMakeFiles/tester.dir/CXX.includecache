@@ -17,6 +17,8 @@ HasType.hpp
 ../include/Aplication.hpp
 Matrix.hpp
 ../include/Matrix.hpp
+Solver.hpp
+../include/Solver.hpp
 opencv2/opencv.hpp
 -
 

@@ -2,11 +2,11 @@
 #define ANPI_APLICACION_HPP
 
 #include "Matrix.hpp"
+#include "Solver.hpp"
 #include <opencv2/opencv.hpp>
 
 namespace anpi {
 
-  template<typename T>
   void mapper(const size_t    rows,
               const size_t    cols,
               const int          n,
@@ -41,7 +41,6 @@ namespace anpi {
     }
   }
 
-  template<typename T>
   void inverseMapper(const size_t rows,
                      const size_t cols,
                      const int&      x,
@@ -136,23 +135,25 @@ namespace anpi {
   }
 
   template<typename T>
-  void mapCreator(anpi::Matrix<T>& A) {
-    cv::Mat image = cv::imread("/home/jeanpaul/Downloads/45.png",0);
+  void mapCreator(std::string      path,
+                  anpi::Matrix<T>&  map) {
+    cv::Mat image = cv::imread(path,0);
     anpi::Matrix<T> a(image.rows,image.cols);
     int pixelColor;
     for (int x = 0;x < image.rows; x++) {
       for (int y = 0; y < image.cols; y++) {
         pixelColor = image.at<uchar>(x,y);
-        if(pixelColor < 127) {
-          A[x][y] = T(0);
+        if(pixelColor > 127) {
+          a[x][y] = T(0);
         }
         else {
-          A[x][y] = T(1);
+          a[x][y] = T(1);
         }
+        std::cout << a[x][y];
       }
       std::cout << std::endl;
     }
-    A = a;
+    map = a;
   }
 
   template<typename T>
@@ -161,7 +162,7 @@ namespace anpi {
     std::vector<T> rVec(2 * map.rows() * map.cols() - (map.rows() + map.cols()),T(1));
     int n,m,i,j;
     for(int k = 0; k < rVec.size(); k++) {
-      anpi::inverseMapper<T>(map.rows(),map.cols(),k,n,m,i,j);
+      anpi::inverseMapper(map.rows(),map.cols(),k,n,m,i,j);
       if(map[n][m] == 1 || map[i][j] == 1) {
         rVec[k] = T(1000000);
       }
@@ -192,19 +193,19 @@ namespace anpi {
       for (int n = 0; n < rows; n++) {
         for (int m = 0; m < cols; m++) {
           if (m - 1 >= 0) {
-            anpi::mapper<float>(rows, cols, n, m, n, m - 1, j);
+            anpi::mapper(rows, cols, n, m, n, m - 1, j);
             A[count][j] = T(1);
           }
           if (n - 1 >= 0) {
-            anpi::mapper<float>(rows, cols, n, m, n - 1, m, j);
+            anpi::mapper(rows, cols, n, m, n - 1, m, j);
             A[count][j] = T(1);
           }
           if (m + 1 < cols) {
-            anpi::mapper<float>(rows, cols, n, m, n, m + 1, j);
+            anpi::mapper(rows, cols, n, m, n, m + 1, j);
             A[count][j] = T(-1);
           }
           if (n + 1 < rows) {
-            anpi::mapper<float>(rows, cols, n, m, n + 1, m, j);
+            anpi::mapper(rows, cols, n, m, n + 1, m, j);
             A[count][j] = T(-1);
           }
           count++;
@@ -222,10 +223,10 @@ namespace anpi {
 
     int size = (2 * rows * cols - (rows + cols));
 
-    if (A.rows() != size &&
-        A.cols() != size &&
-        resistVector != size &&
-        b != size) {
+    if (A.rows()            != size &&
+        A.cols()            != size &&
+        resistVector.size() != size &&
+        b.size()            != size ) {
       throw anpi::Exception("anpi::mallas not matching sizes");
     } else {
 
@@ -240,22 +241,30 @@ namespace anpi {
               x = 0;
             } else if (b[cols - 1] == 0) { // nodo superior derecho
               x = cols - 1;
+              mapper(rows, cols, 0, cols - 2, 0, cols - 1, y);
+              A[x][y] = T(0);
+              mapper(rows, cols, 0, cols - 1, 1, cols - 1, y);
+              A[x][y] = T(0);
             } else { // nodo inferior derecho
               x = (rows * cols) - 1;
+              mapper(rows, cols, rows - 1, cols - 1, rows - 2, cols - 1, y);
+              A[x][y] = T(0);
+              mapper(rows, cols, rows - 1, cols - 1, rows - 1, cols - 2, y);
+              A[x][y] = T(0);
             }
 
           }
-          mapper<T>(rows, cols, n, m, n, m + 1, y);
-          A[x][y] = resistVector[y] * T(1);
-
-          mapper<T>(rows, cols, n, m + 1, n + 1, m + 1, y);
-          A[x][y] = resistVector[y] * T(1);
-
-          mapper<T>(rows, cols, n + 1, m + 1, n + 1, m, y);
+          mapper(rows, cols, n, m, n, m + 1, y);
           A[x][y] = resistVector[y] * T(-1);
 
-          mapper<T>(rows, cols, n + 1, m, n, m, y);
+          mapper(rows, cols, n, m + 1, n + 1, m + 1, y);
           A[x][y] = resistVector[y] * T(-1);
+
+          mapper(rows, cols, n + 1, m + 1, n + 1, m, y);
+          A[x][y] = resistVector[y] * T(1);
+
+          mapper(rows, cols, n + 1, m, n, m, y);
+          A[x][y] = resistVector[y] * T(1);
 
           x++;
 
@@ -270,6 +279,55 @@ namespace anpi {
     }
 
   }
+
+  template<typename T>
+  void getCurrents(const std::string path,
+                   const int           in,
+                   const int           im,
+                   const int           on,
+                   const int           om,
+                   std::vector<T>&      x) {
+
+    anpi::Matrix<T> map;
+
+    mapCreator(path, map);
+
+    std::vector<T> b;
+
+    anpi::vectorFiller<T>(map.rows(), map.cols(), in, im, on, om, b);
+
+    int size = 2 * map.rows() * map.cols() - (map.rows() + map.cols());
+
+    anpi::Matrix<T> A(size,size);
+
+    anpi::nodos<T>(map.rows(), map.cols(), A);
+
+    std::vector<T> resistVector;
+
+    anpi::resistVector(map,resistVector);
+
+    anpi::mallas(map.rows(), map.cols(), resistVector, b, A);
+
+    std::vector<T> y(size,T(1));
+
+    anpi::solveLU<T>(A,y,b);
+
+    x = y;
+  }
+
+  template<typename T>
+  void getCurrents(const std::string path,
+                   const int           in,
+                   const int           im,
+                   const int           on,
+                   const int           om,
+                   std::vector<T>&      x) {
+
+
+  }
+
+
+
 
 }//anpi
 
