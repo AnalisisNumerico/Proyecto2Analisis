@@ -39,31 +39,25 @@ namespace anpi {
       int luCols = LU.cols();
       int luRows = LU.rows();
 
-      anpi::Matrix<T> u(LU.rows(),LU.cols());
+      U = anpi::Matrix<T>(LU.rows(),LU.cols());
 
       for(int j = 0; j < luCols; j++) {
         for(int i = 0; i <= j; i++) {
-          u[i][j] = LU[i][j];
+          U[i][j] = LU[i][j];
         }
       }
 
-      U = u;
-
-      anpi::Matrix<T> l(LU.rows(),LU.cols());
-      //Matrix<T,Alloc> l(LU.rows(),LU.cols());
-      //l.allocate(LU.rows(),LU.cols());
+      L = anpi::Matrix<T>(LU.rows(),LU.cols());
 
       for(int i = 0; i < luRows; i++) { //diagonal
-        l[i][i] = T(1);
+        L[i][i] = T(1);
       }
 
       for(int i = 1; i < luRows; i++) {
         for(int j = 0; j < i; j++) {
-          l[i][j] = LU[i][j];
+          L[i][j] = LU[i][j];
         }
       }
-
-      L = l;
 
     }
     else {
@@ -97,15 +91,13 @@ namespace anpi {
                    std::vector<size_t>& permut) {
 
     if(A.rows() == A.cols()) {
-
       LU = A;
       int n = A.rows();
-      std::vector<size_t > index (A.rows());
-
+      permut.clear();
+      permut.resize(n);
       for(int i = 0; i < n; i++) { //relleno vector indice
-        index[i] = i;
+        permut[i] = i;
       }
-
       for(int j = 0; j < n-1; j++) {
         int bigI = j;
         for(int i = j; i < n; i++) { //busco el mayor numero en la columna
@@ -115,15 +107,15 @@ namespace anpi {
         }
         if(bigI != j) { //si se encontro un pivote mayor se intercambian filas
           T matrixTmp;
-          for(int k = 0; k < n; k++) { //intercambio fila en matriz LU <<<<<<<<<<<<<<<<<<<<<< posible error k = 0
+          for(int k = 0; k < n; k++) { //intercambio fila en matriz LU
             matrixTmp = LU[j][k];
             LU[j][k] = LU [bigI][k];
             LU[bigI][k] = matrixTmp;
           }
           size_t indexTmp;
-          indexTmp = index[j];    //intercambio en vector indice
-          index[j] = index[bigI];
-          index[bigI] = indexTmp;
+          indexTmp = permut[j];    //intercambio en vector indice
+          permut[j] = permut[bigI];
+          permut[bigI] = indexTmp;
         }
 
         if(LU[0][0] == T(0)) {
@@ -136,9 +128,7 @@ namespace anpi {
             LU[i][k] = LU[i][k] - LU[i][j] * LU[j][k];
           }
         }
-
       }
-      permut = index;
     }
     else {
       throw anpi::Exception("Doolittle: invalid decomposition matrix size");

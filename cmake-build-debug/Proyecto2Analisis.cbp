@@ -47,54 +47,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Proyecto2Analisis">
-				<Option output="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Proyecto2Analisis" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Proyecto2Analisis/fast">
-				<Option output="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Proyecto2Analisis" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="anpi">
 				<Option output="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/libanpi.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src"/>
@@ -138,6 +90,54 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 anpi/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Proyecto2Analisis">
+				<Option output="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Proyecto2Analisis" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Proyecto2Analisis/fast">
+				<Option output="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Proyecto2Analisis" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
@@ -252,8 +252,8 @@
 			<Option target="benchmark"/>
 		</Unit>
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/src/main.cpp">
-			<Option target="Proyecto2Analisis"/>
 			<Option target="anpi"/>
+			<Option target="Proyecto2Analisis"/>
 		</Unit>
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAllocator.cpp">
 			<Option target="tester"/>
@@ -291,10 +291,10 @@
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/../../../../../usr/share/OpenCV/OpenCVConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/../../../../../usr/share/OpenCV/OpenCVModules.cmake">
+		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/../../../../../usr/share/OpenCV/OpenCVModules-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/../../../../../usr/share/OpenCV/OpenCVModules-release.cmake">
+		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/../../../../../usr/share/OpenCV/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
 		</Unit>
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/CMakeLists.txt">

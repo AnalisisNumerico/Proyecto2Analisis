@@ -200,21 +200,21 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
     BOOST_CHECK(rvect == RVECT);
 }
 
-BOOST_AUTO_TEST_CASE( GetCurrents ) {
+BOOST_AUTO_TEST_CASE( FirstMethod ) {
   std::vector<float> x;
-  anpi::getCurrents<float>("../../images/2x2.png", 0, 0, 1, 1, x);
+  anpi::firstMethod<float>("../../images/2x2.png", 0, 0, 1, 1, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
-  anpi::getCurrents<float>("../../images/3x3.png", 0, 0, 0, 2, x);
+  anpi::firstMethod<float>("../../images/3x3.png", 0, 0, 0, 2, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
-  anpi::getCurrents<float>("../../images/50x50.png", 1, 1, 49, 49, x);
+  anpi::firstMethod<float>("../../images/50x50.png", 1, 1, 49, 49, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }

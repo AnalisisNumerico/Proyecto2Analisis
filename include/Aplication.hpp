@@ -127,10 +127,10 @@ namespace anpi {
       throw anpi::Exception("anpi::vector filler error: Index out of bounds");
     }
     else {
-      std::vector<T> v(2 * rows * cols - (rows + cols));
-      v[cols * n + m] = T( 1);
-      v[cols * i + j] = T(-1);
-      b = v;
+      b.clear();
+      b.resize(2 * rows * cols - (rows + cols));
+      b[cols * n + m] = T( 1);
+      b[cols * i + j] = T(-1);
     }
   }
 
@@ -138,36 +138,35 @@ namespace anpi {
   void mapCreator(std::string      path,
                   anpi::Matrix<T>&  map) {
     cv::Mat image = cv::imread(path,0);
-    anpi::Matrix<T> a(image.rows,image.cols);
+    map = anpi::Matrix<T>(image.rows,image.cols);
     int pixelColor;
     for (int x = 0;x < image.rows; x++) {
       for (int y = 0; y < image.cols; y++) {
         pixelColor = image.at<uchar>(x,y);
         if(pixelColor > 127) {
-          a[x][y] = T(0);
+          map[x][y] = T(0);
         }
         else {
-          a[x][y] = T(1);
+          map[x][y] = T(1);
         }
-        std::cout << a[x][y];
+        std::cout << map[x][y];
       }
       std::cout << std::endl;
     }
-    map = a;
   }
 
   template<typename T>
   void resistVector(const anpi::Matrix<T>&          map,
                     std::vector<T>&        resistVector) {
-    std::vector<T> rVec(2 * map.rows() * map.cols() - (map.rows() + map.cols()),T(1));
+    resistVector.clear();//////////////////////////////////////////////////////////////////////////////////////////////////
+    resistVector.resize(2 * map.rows() * map.cols() - (map.rows() + map.cols()),T(1));
     int n,m,i,j;
-    for(int k = 0; k < rVec.size(); k++) {
+    for(int k = 0; k < resistVector.size(); k++) {
       anpi::inverseMapper(map.rows(),map.cols(),k,n,m,i,j);
       if(map[n][m] == 1 || map[i][j] == 1) {
-        rVec[k] = T(1000000);
+        resistVector[k] = T(1000000);
       }
     }
-    resistVector = rVec;
   }
 
   /**
@@ -281,16 +280,16 @@ namespace anpi {
   }
 
   template<typename T>
-  void getCurrents(const std::string path,
+  void firstMethod(const std::string mapPath,
                    const int           in,
                    const int           im,
                    const int           on,
                    const int           om,
-                   std::vector<T>&      x) {
+                   std::vector<T>&   path) {
 
     anpi::Matrix<T> map;
 
-    mapCreator(path, map);
+    mapCreator(mapPath, map);
 
     std::vector<T> b;
 
@@ -308,26 +307,12 @@ namespace anpi {
 
     anpi::mallas(map.rows(), map.cols(), resistVector, b, A);
 
-    std::vector<T> y(size,T(1));
+    std::vector<T> x(size,T(1));
 
-    anpi::solveLU<T>(A,y,b);
+    anpi::solveLU<T>(A,x,b);
 
-    x = y;
+    path = x;
   }
-
-  template<typename T>
-  void getCurrents(const std::string path,
-                   const int           in,
-                   const int           im,
-                   const int           on,
-                   const int           om,
-                   std::vector<T>&      x) {
-
-
-  }
-
-
-
 
 }//anpi
 

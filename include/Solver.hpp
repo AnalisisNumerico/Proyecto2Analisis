@@ -22,13 +22,11 @@ namespace anpi {
                          anpi::Matrix<T>&           pMatrix) {
 
     int n = p.size();
-    anpi::Matrix<T> matrix(p.size(),p.size());
+    pMatrix = anpi::Matrix<T>(n,n);
 
     for(int i = 0; i < n; i++) {
-      matrix[i][p[i]] = T(1);
+      pMatrix[i][p[i]] = T(1);
     }
-
-    pMatrix = matrix;
 
   }
 
@@ -39,9 +37,10 @@ namespace anpi {
                            std::vector<T>&        y) {
 
     int n = L.rows();
-    std::vector<T> x(n);
+    y.clear();
+    y.resize(n);
     for(int i = 0; i < n; i++) {
-      x[i] =  T(1);
+      y[i] =  T(1);
     }
 
     T sum;
@@ -49,40 +48,38 @@ namespace anpi {
     for(int m = 0; m < n ; m++) {
       sum = T(0);
       for(int i = 0; i < m; i++) {
-        sum += L[m][i] * x[i];
+        sum += L[m][i] * y[i];
       }
-      x[m] =  (b[m] - sum)/L[m][m];
+      y[m] =  (b[m] - sum)/L[m][m];
     }
-
-    y = x;
 
   }
 
   /// method used to solve upper triangular matrices
   template<typename T>
   void backwardSubstitution(const anpi::Matrix<T>& U,
-                        const std::vector<T>&  y,
-                        std::vector<T>&        x) {
+                            const std::vector<T>&  y,
+                            std::vector<T>&        x) {
     int n = U.rows();
 
-    std::vector<T> w(n);
+    x.clear();
+    x.resize(n);
+
     for(int i = 0; i < n; i++) {
-      w[i] =  T(1);
+      x[i] =  T(1);
     }
 
     T sum;
 
-    w[n-1] = y[n-1] / U[n-1][n-1];
+    x[n-1] = y[n-1] / U[n-1][n-1];
 
     for(int i = (n-2); i >= 0; i--) {
       sum = T(0);
       for(int j = (n-1); j >= (i+1); j--) {
-        sum += U[i][j] * w[j];
+        sum += U[i][j] * x[j];
       }
-      w[i] = (y[i] - sum) / U[i][i];
+      x[i] = (y[i] - sum) / U[i][i];
     }
-
-    x = w;
 
   }
 
