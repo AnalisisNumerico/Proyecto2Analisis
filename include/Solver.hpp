@@ -99,7 +99,7 @@ namespace anpi {
     anpi::Matrix<T> P;
     anpi::permutationMatrix(p,P);
 
-    anpi::Matrix<T>PB = P * b; //ERRROR
+    anpi::Matrix<T>PB = P * b;
 
     std::vector<T> Pb(PB.rows());
 
@@ -113,7 +113,6 @@ namespace anpi {
     anpi::backwardSubstitution(U,y,x);
 
     return 1;
-
 
   }
 

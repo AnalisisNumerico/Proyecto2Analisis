@@ -158,7 +158,7 @@ namespace anpi {
   template<typename T>
   void resistVector(const anpi::Matrix<T>&          map,
                     std::vector<T>&        resistVector) {
-    resistVector.clear();//////////////////////////////////////////////////////////////////////////////////////////////////
+    resistVector.clear();
     resistVector.resize(2 * map.rows() * map.cols() - (map.rows() + map.cols()),T(1));
     int n,m,i,j;
     for(int k = 0; k < resistVector.size(); k++) {
@@ -280,12 +280,14 @@ namespace anpi {
   }
 
   template<typename T>
-  void firstMethod(const std::string mapPath,
-                   const int           in,
-                   const int           im,
-                   const int           on,
-                   const int           om,
-                   std::vector<T>&   path) {
+  void findPath(const std::string mapPath,
+                const int              in,
+                const int              im,
+                const int              on,
+                const int              om,
+                int&                 rows,
+                int&                 cols,
+                std::vector<T>&  currents) {
 
     anpi::Matrix<T> map;
 
@@ -307,11 +309,108 @@ namespace anpi {
 
     anpi::mallas(map.rows(), map.cols(), resistVector, b, A);
 
-    std::vector<T> x(size,T(1));
+    currents.clear();
+    currents.resize(size,T(1));
 
-    anpi::solveLU<T>(A,x,b);
+    rows = map.rows();
+    cols = map.cols();
 
-    path = x;
+    anpi::solveLU<T>(A,currents,b);
+  }
+
+  template<typename T>
+  void firstMethod(const std::string       mapPath,
+                   const int                  rows,
+                   const int                  cols,
+                   const int                    in,
+                   const int                    im,
+                   const int                    on,
+                   const int                    om,
+                   const std::vector<T>&  currents) {
+
+    cv::Mat img = cv::imread(mapPath);
+
+
+    int n = in;
+    int m = im;
+    cv::Vec3b color = img.at<cv::Vec3b>(cv::Point(m,n));
+    color[0] = 255;
+    color[1] =   0;
+    color[2] =   0;
+    img.at<cv::Vec3b>(cv::Point(m,n)) = color;
+
+    int prevNode = 0;
+    int tmpPrevNode;
+    int nNext,mNext,c;
+    T current, tmpCurrent;
+
+    while(n != on || m != om) {
+      current = T(0);
+      if(0 <= n - 1 && prevNode != 3) {
+        mapper(rows,cols,n,m,n - 1,m,c);
+        tmpCurrent = std::abs(currents[c]);
+        if(current < tmpCurrent) {
+          nNext = n - 1;
+          mNext = m;
+          std::cout << "prev current " << current << std::endl;
+          std::cout << "new current " << tmpCurrent << std::endl;
+          current = tmpCurrent;
+          tmpPrevNode = 1;
+        }
+      }
+      if(0 <= m - 1 && prevNode != 4) {
+        mapper(rows,cols,n,m,n,m - 1,c);
+        tmpCurrent = std::abs(currents[c]);
+        if(current < tmpCurrent) {
+          nNext = n;
+          mNext = m - 1;
+
+          std::cout << "prev current " << current << std::endl;
+          std::cout << "new current " << tmpCurrent << std::endl;
+          current = tmpCurrent;
+          tmpPrevNode = 2;
+        }
+      }
+      if(n + 1 < rows && prevNode != 1) {
+        mapper(rows,cols,n,m,n + 1,m,c);
+        tmpCurrent = std::abs(currents[c]);
+        if(current < tmpCurrent) {
+          nNext = n + 1;
+          mNext = m;
+          std::cout << "prev current " << current << std::endl;
+          std::cout << "new current " << tmpCurrent << std::endl;
+          current = tmpCurrent;
+          tmpPrevNode = 3;
+        }
+      }
+      if(m + 1 < cols && prevNode != 2) {
+        mapper(rows,cols,n,m,n,m + 1,c);
+        tmpCurrent = std::abs(currents[c]);
+        if(current < tmpCurrent) {
+          nNext = n;
+          mNext = m + 1;
+          std::cout << "prev current " << current << std::endl;
+          std::cout << "new current " << tmpCurrent << std::endl;
+          current = tmpCurrent;
+          tmpPrevNode = 4;
+        }
+      }
+      n = nNext;
+      m = mNext;
+      prevNode = tmpPrevNode;
+      std::cout << n << " " << m << std::endl;
+      cv::Vec3b color = img.at<cv::Vec3b>(cv::Point(m,n));
+      color[0] = 255;
+      color[1] =   0;
+      color[2] =   0;
+      img.at<cv::Vec3b>(cv::Point(m,n)) = color;
+    }
+
+    cv::namedWindow("image", CV_WINDOW_NORMAL);
+    cv::imshow("image", img);
+    cv::resizeWindow("image", 600,600);
+    cv::waitKey(0);
+    cv::destroyAllWindows();
   }
 
 }//anpi

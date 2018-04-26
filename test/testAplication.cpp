@@ -181,6 +181,13 @@ BOOST_AUTO_TEST_CASE( MapCreator ) {
 
     BOOST_CHECK(MAP == map);
 
+    anpi::mapCreator<float>("../../images/4x3.png",map);
+
+    MAP = { {0, 0, 0},
+            {1, 1, 0},
+            {0, 1, 0},
+            {0, 0, 0} };
+
 }
 
 BOOST_AUTO_TEST_CASE( ResistVector ) {
@@ -201,25 +208,39 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
 }
 
 BOOST_AUTO_TEST_CASE( FirstMethod ) {
+  int rows,cols;
   std::vector<float> x;
-  anpi::firstMethod<float>("../../images/2x2.png", 0, 0, 1, 1, x);
+  anpi::findPath<float>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
-  anpi::firstMethod<float>("../../images/3x3.png", 0, 0, 0, 2, x);
+  anpi::firstMethod("../../images/2x2.png", rows, cols, 0, 0, 1, 1, x);
+
+  anpi::findPath<float>("../../images/3x3.png", 0, 0, 0, 2, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
-  anpi::firstMethod<float>("../../images/50x50.png", 1, 1, 49, 49, x);
+  anpi::firstMethod("../../images/3x3.png", rows, cols, 0, 0, 0, 2, x);
+
+  anpi::findPath<float>("../../images/4x3.png", 0, 0, 2, 0, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
+  anpi::firstMethod("../../images/4x3.png", rows, cols, 0, 0, 2, 0, x);
+
+/*
+  anpi::findPath<float>("../../images/50x50.png", 1, 1, 49, 49,rows, cols, x);
+  for(int i = 0; i < x.size(); i++) {
+    std::cout << x[i] << " ";
+  }
+  std::cout << std::endl;
+*/
 }
 
 
