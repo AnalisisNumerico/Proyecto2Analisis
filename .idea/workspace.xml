@@ -14,7 +14,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7da1395-0259-4c92-ac82-e3a23dfea8c8" name="Default" comment="" />
+    <list default="true" id="f7da1395-0259-4c92-ac82-e3a23dfea8c8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +31,7 @@
       <file leaf-file-name="Aplication.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
+            <state relative-caret-position="7290">
               <caret line="405" column="7" selection-start-line="405" selection-start-column="7" selection-end-line="405" selection-end-column="7" />
               <folding>
                 <element signature="e#57#78#0" expanded="true" />
@@ -41,8 +43,8 @@
       <file leaf-file-name="testAplication.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/testAplication.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="240" column="26" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
+            <state relative-caret-position="318">
+              <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
             </state>
           </provider>
         </entry>
@@ -72,8 +74,8 @@
         <option value="$PROJECT_DIR$/test/testLU.cpp" />
         <option value="$PROJECT_DIR$/include/LUDoolittle.hpp" />
         <option value="$PROJECT_DIR$/include/Solver.hpp" />
-        <option value="$PROJECT_DIR$/include/Aplication.hpp" />
         <option value="$PROJECT_DIR$/test/testAplication.cpp" />
+        <option value="$PROJECT_DIR$/include/Aplication.hpp" />
       </list>
     </option>
   </component>
@@ -205,12 +207,12 @@
       <workItem from="1524839084456" duration="4590000" />
       <workItem from="1524868643079" duration="20160000" />
       <workItem from="1524894285221" duration="13298000" />
-      <workItem from="1524927546972" duration="7929000" />
+      <workItem from="1524927546972" duration="9167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164210000" />
+    <option name="totallyTimeSpent" value="165448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
@@ -221,7 +223,7 @@
       <window_info anchor="bottom" id="CMake" order="11" weight="0.40472442" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5043924" side_tool="true" weight="0.24802528" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4956076" visible="true" weight="0.10110585" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4956076" weight="0.2164297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -652,7 +654,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/Aplication.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
+        <state relative-caret-position="7290">
           <caret line="405" column="7" selection-start-line="405" selection-start-column="7" selection-end-line="405" selection-end-column="7" />
           <folding>
             <element signature="e#57#78#0" expanded="true" />
@@ -662,8 +664,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/testAplication.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="240" column="26" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
+        <state relative-caret-position="318">
+          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
         </state>
       </provider>
     </entry>
