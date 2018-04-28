@@ -15,6 +15,7 @@
 #include <cstring>
 #include <cassert>
 #include <memory>
+#include <vector>
 
 #include <initializer_list>
 
@@ -117,7 +118,7 @@ namespace anpi
   public:
 
     /**
-     * @name Constructors
+     * @name ConstructorsAlfredo
      */
     //@{
     Matrix();
@@ -318,7 +319,7 @@ namespace anpi
     Matrix& operator*=(const Matrix& other);
 
     /// Multiplicate another matrix to this one, and leave the result in here
-    Matrix& operator *=(const std::vector<T>& other);
+    Matrix& operator*=(const std::vector<T>& other);
 
     //@}
 

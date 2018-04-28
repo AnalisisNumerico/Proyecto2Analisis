@@ -10,6 +10,8 @@
 #include <ostream>
 #include <fstream>
 #include <limits>
+#include <vector>
+
 
 #include <Matrix.hpp>
 #include <PlotPy.hpp>
