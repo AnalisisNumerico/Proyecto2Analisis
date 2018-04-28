@@ -7,7 +7,6 @@ benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.o
  ../include/Exception.hpp
  ../include/HasType.hpp
  ../include/Intrinsics.hpp
- ../include/LUCrout.hpp
  ../include/LUDoolittle.hpp
  ../include/Matrix.hpp
  ../include/Matrix.tpp
