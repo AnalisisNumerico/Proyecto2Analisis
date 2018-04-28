@@ -468,10 +468,10 @@ namespace anpi{
     }
 
   template<typename T,class Alloc>
-  Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a, const std::vector<T>& b) {
+  std::vector<T> operator*(const Matrix<T,Alloc>& a, const std::vector<T>& b) {
 
       assert( (a.cols()==b.size()) );
-      Matrix<T,Alloc> c(a.rows(),1);
+      std::vector<T> c (a.rows());
       ::anpi::aimpl::product(a,b,c);
       return c;
 

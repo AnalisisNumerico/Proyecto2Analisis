@@ -38,69 +38,137 @@ BOOST_AUTO_TEST_SUITE( Matrix )
     class benchAdd {
     protected:
         /// Maximum allowed size for the square matrices
-        const size_t _maxSize;
+        const size_t _size;
 
         /// A large matrix holding
-        anpi::Matrix<T> _data;
+        anpi::Matrix<T> A;
 
-        /// State of the benchmarked evaluation
-        anpi::Matrix<T> _a;
-        anpi::Matrix<T> _b;
-        anpi::Matrix<T> _c;
+        anpi::Matrix<T> L;
+        anpi::Matrix<T> U;
 
-        ///CREO EL ALLOCATOR
-        typedef anpi::aligned_allocator<float> aalloc;
-
-        anpi::Matrix<T, aalloc> _aAlloc;
-        anpi::Matrix<T, aalloc> _bAlloc;
+        anpi::Matrix<T> LU;
 
     public:
         /// Construct
-        benchAdd(const size_t maxSize)
-                : _maxSize(maxSize),_data(maxSize,maxSize,anpi::DoNotInitialize) {
+        benchAdd(const size_t size)
+                : _size(size),A(size,size,anpi::DoNotInitialize) {
 
-            size_t idx=0;
-            for (size_t r=0;r<_maxSize;++r) {
-                for (size_t c=0;c<_maxSize;++c) {
-                    _data(r,c)=idx++;
-                }
-            }
+
         }
+
 
         /// Prepare the evaluation of given size
         void prepare(const size_t size) {
-            assert (size<=this->_maxSize);
-            this->_a=std::move(anpi::Matrix<T>(size,size,_data.data()));
-            this->_b=this->_a;
+            U.allocate(size,size);
+            L.allocate(size,size);
+
+            for(int j = 0; j < size; j++) {
+                for(int i = 0; i <= j; i++) {
+                    U[i][j] = std::rand() % (( 101 ) );
+                }
+            }
+
+            for(int i = 1; i < size; i++) {
+                for(int j = 0; j < i; j++) {
+                    L[i][j] = std::rand() % (( 101 ) );
+                }
+            }
+
+            for(int i = 0; i < size; i++) { //diagonal
+                L[i][i] = T(1);
+            }
+
+
+            A = L*U;
+
+            LU.allocate(size,size);
+
+            std::cout << size << std::endl;
         }
     };
 
+    template<typename T,class Alloc>
+    class benchDooLittleSIMD {
+    protected:
+        /// Maximum allowed size for the square matrices
+        const size_t _size;
+
+        /// A large matrix holding
+        anpi::Matrix<T, Alloc> A;
+
+        anpi::Matrix<T, Alloc> L;
+        anpi::Matrix<T, Alloc> U;
+
+        anpi::Matrix<T, Alloc> LU;
+
+    public:
+        /// Construct
+        benchDooLittleSIMD(const size_t size) : _size(size), A(size,size,anpi::DoNotInitialize) {
+
+
+        }
+
+
+
+        /// Prepare the evaluation of given size
+        void prepare(const size_t size) {
+         //assert (size<=this->_size);
+
+            U.allocate(size,size);
+            L.allocate(size,size);
+
+            for(int j = 0; j < size; j++) {
+                for(int i = 0; i <= j; i++) {
+                    U[i][j] = std::rand() % (( 101 ) );
+                }
+            }
+
+            for(int i = 1; i < size; i++) {
+                for(int j = 0; j < i; j++) {
+                    L[i][j] = std::rand() % (( 101 ) );
+                }
+            }
+
+            for(int i = 0; i < size; i++) { //diagonal
+                L[i][i] = T(1);
+            }
+
+
+            A = L*U;
+
+            LU.allocate(size,size);
+
+            std::cout << size << std::endl;
+
+        }
+    };
+
+
 /// Provide the evaluation method for in-place addition
     template<typename T>
-    class benchAddInPlaceFallback : public benchAdd<T> {
+    class luDoolittleFallback : public benchAdd<T> {
     public:
         /// Constructor
-        benchAddInPlaceFallback(const size_t n) : benchAdd<T>(n) { }
+        luDoolittleFallback(const size_t n) : benchAdd<T>(n) { }
 
         // Evaluate add in-place
         inline void eval() {
             std::vector<size_t> p;
-            anpi::fallback1::luDoolittle(this->_a,this->_b,p);
+            anpi::fallback1::luDoolittle(this->A,this->LU,p);
         }
     };
 
 /// Provide the evaluation method for on-copy addition
-    template<typename T>
-    class benchAddOnCopyFallback : public benchAdd<T> {
+    template<typename T,class Alloc>
+    class luDoolittleSIMD : public benchDooLittleSIMD<T,Alloc> {
     public:
         /// Constructor
-        benchAddOnCopyFallback(const size_t n) : benchAdd<T>(n) { }
+        luDoolittleSIMD(const size_t n) : benchDooLittleSIMD<T, Alloc>(n) { }
 
         // Evaluate add on-copy
         inline void eval() {
-            std::vector<size_t> p;
-            //anpi::luCrout(this->_a,this->_b,p);
-            anpi::SIMD1::luDoolittle(this->_aAlloc,this->_bAlloc,p);
+            std::vector<size_t> p; ///ESTE P???
+            anpi::SIMD1::luDoolittle(this->A,this->LU,p);
 
         }
     };
@@ -120,9 +188,6 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
         /// State of the benchmarked evaluation
         anpi::Matrix<T> _a;
-        anpi::Matrix<T> _b;
-        anpi::Matrix<T> _c;
-
 
     public:
         /// Construct
@@ -141,16 +206,15 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         void prepare(const size_t size) {
             assert (size<=this->_maxSize);
             this->_a=std::move(anpi::Matrix<T>(size,size,_data.data()));
-            this->_b=this->_a;
         }
     };
 
 /// Provide the evaluation method for in-place addition
     template<typename T>
-    class benchFillInPlaceFallback : public benchFill<T> {
+    class benchFillFallback : public benchFill<T> {
     public:
         /// Constructor
-        benchFillInPlaceFallback(const size_t n) : benchFill<T>(n) { }
+        benchFillFallback(const size_t n) : benchFill<T>(n) { }
 
         // Evaluate add in-place
         inline void eval() {
@@ -160,10 +224,10 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
 /// Provide the evaluation method for on-copy addition
     template<typename T>
-    class benchFillOnCopyFallback : public benchFill<T> {
+    class benchFillSIMD : public benchFill<T> {
     public:
         /// Constructor
-        benchFillOnCopyFallback(const size_t n) : benchFill<T>(n) { }
+        benchFillSIMD(const size_t n) : benchFill<T>(n) { }
 
         // Evaluate add on-copy
         inline void eval() {
@@ -184,9 +248,8 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         std::vector<anpi::benchmark::measurement> times;
 
         {
-            benchFillInPlaceFallback<float> baip(n);
+            benchFillFallback<float> baip(n);
 
-            // Measure in place add
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
             ::anpi::benchmark::write("Fill sin SIMD",times);
@@ -194,9 +257,8 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         }
 
         {
-            benchFillOnCopyFallback<float> baip(n);
+            benchFillSIMD<float> baip(n);
 
-            // Measure in place add
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
             ::anpi::benchmark::write("Fill con SIMD",times);
@@ -214,29 +276,29 @@ BOOST_AUTO_TEST_SUITE( Matrix )
     BOOST_AUTO_TEST_CASE( LU ) {
 
         std::vector<size_t> sizes = {  24,  32,  48,  64,
-                                       96, 128, 192, 256,
-                                       384, 512, 768,1024,
-                                       1536,2048,3072,4096};
+                                       96, 128, 192, 256
+                                       };
 
-
-        const size_t n=sizes.back();
+        size_t n=sizes.front();
         const size_t repetitions=100;
         std::vector<anpi::benchmark::measurement> times;
 
         {
-            benchAddInPlaceFallback<float> baip(n);
+            luDoolittleFallback<float> baip(n);
 
-            // Measure in place add
+
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
+
 
             ::anpi::benchmark::write("LU Doolittle normal",times);
             ::anpi::benchmark::plotRange(times,"LU Doolittle normal","b");
         }
 
         {
-            benchAddOnCopyFallback<float> baip(n);
+            ///CREO EL ALLOCATOR
+            typedef anpi::aligned_allocator<float> aalloc;
+            luDoolittleSIMD<float, aalloc> baip(n);
 
-            // Measure in place add
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
             ::anpi::benchmark::write("LU Doolittle SIMD",times);

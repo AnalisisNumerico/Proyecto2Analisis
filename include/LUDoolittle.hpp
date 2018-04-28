@@ -106,16 +106,6 @@ namespace anpi {
 
                 for(int j = 0; j < n-1; j++) {
 
-                    ///METODO imprime matriz
-                    std::cout << "LU = [";
-                    for(int i =0; i < LU.rows(); i++){
-                        for(int j =0; j < LU.cols(); j++){
-                            std::cout << LU[i][j] << ", " ;
-                        }
-                        std::cout << "" << std::endl;
-                    }
-                    std::cout << "]"<< std::endl;
-
                     int bigI = j;
                     for(int i = j; i < n; i++) { //busco el mayor numero en la columna
                         if(std::abs(LU[bigI][j]) < std::abs(LU[i][j])) { //cambio el indice de la fila
@@ -244,16 +234,6 @@ namespace anpi {
             typename sse2_traits<T>::reg_type* LUptr1  = reinterpret_cast<typename sse2_traits<T>::reg_type*>(LU.data());
             for(int j = 0; j < n-1; j++) {
 
-                ///METODO imprime matriz
-                std::cout << "LU = [";
-                for(int i =0; i < LU.rows(); i++){
-                    for(int j =0; j < LU.cols(); j++){
-                        std::cout << LU[i][j] << ", " ;
-                    }
-                    std::cout << "" << std::endl;
-                }
-                std::cout << "]"<< std::endl;
-
             int bigI = j;
             for(int i = j; i < n; i++) { //busco el mayor numero en la columna
               if(std::abs(LU[bigI][j]) < std::abs(LU[i][j])) { //cambio el indice de la fila
@@ -285,20 +265,9 @@ namespace anpi {
                   const T fin = LU.cols()/(sizeof(typename sse2_traits<T>::reg_type)/ (sizeof(T)));
                 for(int k = 0; k < fin; k++) {
                     T temp = LU[i][k];
-                    std::cout << LU[i][0] << std::endl;
-                    std::cout << LU[i][1] << std::endl;
-                    std::cout << LU[i][2] << std::endl;
-                    std::cout << LU[i][3] << std::endl;
                     *LUptr2 = anpi::aimpl::mm_sub<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
                     LU[i][k] = temp;
-                    std::cout << "+++++"<< std::endl;
-                    std::cout << LU[i][0] << std::endl;
-                    std::cout << LU[i][1] << std::endl;
-                    std::cout << LU[i][2] << std::endl;
-                    std::cout << LU[i][3] << std::endl;
                 }
-                  std::cout << "-----------"<< std::endl;
-
             }
           LUptr1++;
           }

@@ -224,6 +224,16 @@ void testAssignment() {
     std::vector<typename M::value_type> ref = {2,7,12};
     BOOST_CHECK( col == ref );
   }
+
+  { // fill
+    M A(3,3);
+    anpi::aimpl::fill(typename M::value_type(2), A);
+    M a = { {1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15} };
+    std::vector<typename M::value_type> col = a.column(1);
+    std::vector<typename M::value_type> ref = {2,7,12};
+
+    BOOST_CHECK( col == ref );
+  }
 }
 
 BOOST_AUTO_TEST_CASE(Assignment)
@@ -277,9 +287,9 @@ void testArithmetic() {
   {
     M a = { {1,2,3},{ 6, 5, 4} };
     std::vector<typename M::value_type> b = { 1,2,-3 };
-    M r = { {-4},{4} };
+    std::vector<typename M::value_type> r = { -4,4 };
 
-    M c=a*b;
+    std::vector<typename M::value_type> c=a*b;
 
      BOOST_CHECK( c==r );
 

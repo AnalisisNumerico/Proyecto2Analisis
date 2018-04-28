@@ -75,11 +75,19 @@ namespace anpi {
     w[n-1] = y[n-1] / U[n-1][n-1];
 
     for(int i = (n-2); i >= 0; i--) {
+
+      /// crear un registro de cero?
       sum = T(0);
+
+      ///potencial para optimizacion
       for(int j = (n-1); j >= (i+1); j--) {
-        sum += U[i][j] * w[j];
+        sum = sum + U[i][j] * w[j];
+        // *LUptr2 = anpi::aimpl::mm_add<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
+
       }
       w[i] = (y[i] - sum) / U[i][i];
+      //*LUptr2 = anpi::aimpl::mm_add<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
+
     }
 
     x = w;
@@ -103,6 +111,8 @@ namespace anpi {
     anpi::permutationMatrix(p,P);
 
     anpi::Matrix<T>PB = P * b; //ERRROR
+   //TODO:
+    //std::vector<T>PB = P * b; //biien
 
     std::vector<T> Pb(PB.rows());
 

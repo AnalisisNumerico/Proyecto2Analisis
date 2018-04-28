@@ -128,18 +128,14 @@ namespace anpi
       template<typename T,class Alloc>
       inline void product(const Matrix<T,Alloc>& a,
                            const std::vector<T>& b,
-                          Matrix<T,Alloc>& c) {
+                          std::vector<T>& c) {
 
-
-
-          assert((a.cols() == b.size()));
-          c.allocate(a.rows(), 1);
-          for (int i = 0; i < a.rows(); i++) {
-              T data = 0;
-              for (int j = 0; j < b.size(); j++) {
-                  data = data + a[i][j] * b[j];
+          for(size_t i=0;i<a.rows();++i){
+              T sum=T();
+              for(size_t k=0;k<b.size();++k){
+                  sum+=a(i,k)*b[k];
               }
-              c[i][0]=data;
+              c[i]=sum;
           }
       }
       // In-place implementation a = a*b
@@ -147,18 +143,7 @@ namespace anpi
       inline void product(Matrix<T,Alloc>& a,
                            const std::vector<T>& b) {
 
-
-
-          assert((a.cols() == b.size()));
-          for (int i = 0; i < a.rows(); i++) {
-              T data = 0;
-              for (int j = 0; j < b.size(); j++) {
-                  data = data + a[i][j] * b[j];
-                  //std::cout << "con c "<<data << std::endl;
-              }
-              a[i][0]=data;
-          }
-
+          ::anpi::fallback::product(a,b,b);
 
       }
 
@@ -194,10 +179,6 @@ namespace anpi
       inline void product(const Matrix<T,Alloc>& a,
                           const Matrix<T,Alloc>& b,
                           Matrix<T,Alloc>& c) {
-
-          std::cout << "producto 4 sin simd " << std::endl;
-
-
 
           c.allocate(a.rows(),b.cols());
 
@@ -509,37 +490,6 @@ namespace anpi
     }
 
 
-    /*
-     * Subtraction
-     */
-
-    // Fall back implementations
-
-    // In-copy implementation c=a-b
-    template<typename T,class Alloc>
-    inline void subtract(const Matrix<T,Alloc>& a,
-                         const Matrix<T,Alloc>& b,
-                         Matrix<T,Alloc>& c) {
-      ::anpi::fallback::subtract(a,b,c);
-    }
-
-    // In-place implementation a = a-b
-    template<typename T,class Alloc>
-    inline void subtract(Matrix<T,Alloc>& a,
-                         const Matrix<T,Alloc>& b) {
-
-      ::anpi::fallback::subtract(a,b);
-    }
-
-
-
-
-
-
-
-
-
-
         ///the following code is ger534 trying to understand SIMD instructions
         ///necesito agregar al set de instrucciones las de multiplicacion???
 
@@ -596,81 +546,28 @@ namespace anpi
             ::anpi::fallback::fill(val, a);
         }
 
+        /*
+         * Subtraction
+         */
 
+    // Fall back implementations
 
+    // In-copy implementation c=a-b
+    template<typename T,class Alloc>
+    inline void subtract(const Matrix<T,Alloc>& a,
+                         const Matrix<T,Alloc>& b,
+                         Matrix<T,Alloc>& c) {
+      ::anpi::fallback::subtract(a,b,c);
+    }
 
+    // In-place implementation a = a-b
+    template<typename T,class Alloc>
+    inline void subtract(Matrix<T,Alloc>& a,
+                         const Matrix<T,Alloc>& b) {
 
-        // On-copy implementation c=a-b
-        template<typename T,class Alloc,typename regType>
-        inline void subSIMD(const Matrix<T,Alloc>& a,
-                            const Matrix<T,Alloc>& b,
-                            Matrix<T,Alloc>& c) {
+      ::anpi::fallback::subtract(a,b);
+    }
 
-            // This method is instantiated with unaligned allocators.  We
-            // allow the instantiation although externally this is never
-            // called unaligned
-            static_assert(!extract_alignment<Alloc>::aligned ||
-                          (extract_alignment<Alloc>::value >= sizeof(regType)),
-                          "Insufficient alignment for the registers used");
-
-            const size_t tentries = a.rows()*a.dcols();
-            c.allocate(a.rows(),a.cols());
-
-            regType* here        = reinterpret_cast<regType*>(c.data());
-            const size_t  blocks = ( tentries*sizeof(T) + (sizeof(regType)-1) )/
-                                   sizeof(regType);
-            regType *const end   = here + blocks;
-
-            const regType* aptr  = reinterpret_cast<const regType*>(a.data());
-            const regType* bptr  = reinterpret_cast<const regType*>(b.data());
-
-            for (;here!=end;) {
-                *here++ = mm_sub<T>(*aptr++,*bptr++);
-            }
-
-        }
-
-        // On-copy implementation c=a-b for SIMD-capable types
-        template<typename T,
-                class Alloc,
-                typename std::enable_if<is_simd_type<T>::value,int>::type=0>
-        inline void sub(const Matrix<T,Alloc>& a,
-                        const Matrix<T,Alloc>& b,
-                        Matrix<T,Alloc>& c) {
-
-            assert( (a.rows() == b.rows()) &&
-                    (a.cols() == b.cols()) );
-
-
-            if (is_aligned_alloc<Alloc>::value) {
-#ifdef __SSE2__
-                subSIMD<T,Alloc,typename sse2_traits<T>::reg_type>(a,b,c);
-#else
-                ::anpi::fallback::subtract(a,b,c);
-#endif
-            } else { // allocator seems to be unaligned
-                ::anpi::fallback::subtract(a,b,c);
-            }
-        }
-
-        // Non-SIMD types such as complex
-        template<typename T,
-                class Alloc,
-                typename std::enable_if<!is_simd_type<T>::value,int>::type = 0>
-        inline void sub(const Matrix<T,Alloc>& a,
-                        const Matrix<T,Alloc>& b,
-                        Matrix<T,Alloc>& c) {
-
-            ::anpi::fallback::subtract(a,b,c);
-        }
-
-        // In-place implementation a = a-b
-        template<typename T,class Alloc>
-        inline void sub(Matrix<T,Alloc>& a,
-                        const Matrix<T,Alloc>& b) {
-
-            sub(a,b,a);
-        }
 
 
 
@@ -681,7 +578,7 @@ namespace anpi
         template<typename T,class Alloc>
         inline void product(const Matrix<T,Alloc>& a,
                             const std::vector<T>& b,
-                            Matrix<T,Alloc>& c) {
+                            std::vector<T>& c) {
             ::anpi::fallback::product(a,b,c);
         }
 
@@ -689,8 +586,8 @@ namespace anpi
         template<typename T,class Alloc>
         inline void product(Matrix<T,Alloc>& a,
                             const std::vector<T>& b) {
-
-            ::anpi::fallback::product(a,b);
+            //::anpi::fallback::product(a,b,b);
+            //::anpi::fallback::product(a,b,a);
         }
 
 

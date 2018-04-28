@@ -136,33 +136,6 @@ benchmark/fast:
 	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/build
 .PHONY : benchmark/fast
 
-benchmarkFill.o: benchmarkFill.cpp.o
-
-.PHONY : benchmarkFill.o
-
-# target to build an object file
-benchmarkFill.cpp.o:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkFill.cpp.o
-.PHONY : benchmarkFill.cpp.o
-
-benchmarkFill.i: benchmarkFill.cpp.i
-
-.PHONY : benchmarkFill.i
-
-# target to preprocess a source file
-benchmarkFill.cpp.i:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkFill.cpp.i
-.PHONY : benchmarkFill.cpp.i
-
-benchmarkFill.s: benchmarkFill.cpp.s
-
-.PHONY : benchmarkFill.s
-
-# target to generate assembly for a file
-benchmarkFill.cpp.s:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkFill.cpp.s
-.PHONY : benchmarkFill.cpp.s
-
 benchmarkLU.o: benchmarkLU.cpp.o
 
 .PHONY : benchmarkLU.o
@@ -217,33 +190,6 @@ benchmarkMain.cpp.s:
 	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMain.cpp.s
 .PHONY : benchmarkMain.cpp.s
 
-benchmarkMatrixAdd.o: benchmarkMatrixAdd.cpp.o
-
-.PHONY : benchmarkMatrixAdd.o
-
-# target to build an object file
-benchmarkMatrixAdd.cpp.o:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.o
-.PHONY : benchmarkMatrixAdd.cpp.o
-
-benchmarkMatrixAdd.i: benchmarkMatrixAdd.cpp.i
-
-.PHONY : benchmarkMatrixAdd.i
-
-# target to preprocess a source file
-benchmarkMatrixAdd.cpp.i:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.i
-.PHONY : benchmarkMatrixAdd.cpp.i
-
-benchmarkMatrixAdd.s: benchmarkMatrixAdd.cpp.s
-
-.PHONY : benchmarkMatrixAdd.s
-
-# target to generate assembly for a file
-benchmarkMatrixAdd.cpp.s:
-	cd /home/ger534/CLionProjects/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.s
-.PHONY : benchmarkMatrixAdd.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -254,18 +200,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... benchmark"
-	@echo "... benchmarkFill.o"
-	@echo "... benchmarkFill.i"
-	@echo "... benchmarkFill.s"
 	@echo "... benchmarkLU.o"
 	@echo "... benchmarkLU.i"
 	@echo "... benchmarkLU.s"
 	@echo "... benchmarkMain.o"
 	@echo "... benchmarkMain.i"
 	@echo "... benchmarkMain.s"
-	@echo "... benchmarkMatrixAdd.o"
-	@echo "... benchmarkMatrixAdd.i"
-	@echo "... benchmarkMatrixAdd.s"
 .PHONY : help
 
 
