@@ -351,8 +351,6 @@ namespace anpi {
         if(current < tmpCurrent) {
           nNext = n - 1;
           mNext = m;
-          //std::cout << "prev current " << current << std::endl;
-          //std::cout << "new current " << tmpCurrent << std::endl;
           current = tmpCurrent;
           tmpPrevNode = 1;
         }
@@ -363,9 +361,6 @@ namespace anpi {
         if(current < tmpCurrent) {
           nNext = n;
           mNext = m - 1;
-
-          //std::cout << "prev current " << current << std::endl;
-          //std::cout << "new current " << tmpCurrent << std::endl;
           current = tmpCurrent;
           tmpPrevNode = 2;
         }
@@ -376,8 +371,6 @@ namespace anpi {
         if(current < tmpCurrent) {
           nNext = n + 1;
           mNext = m;
-          //std::cout << "prev current " << current << std::endl;
-          //std::cout << "new current " << tmpCurrent << std::endl;
           current = tmpCurrent;
           tmpPrevNode = 3;
         }
@@ -388,8 +381,6 @@ namespace anpi {
         if(current < tmpCurrent) {
           nNext = n;
           mNext = m + 1;
-          //std::cout << "prev current " << current << std::endl;
-          //std::cout << "new current " << tmpCurrent << std::endl;
           current = tmpCurrent;
           tmpPrevNode = 4;
         }
@@ -397,7 +388,6 @@ namespace anpi {
       n = nNext;
       m = mNext;
       prevNode = tmpPrevNode;
-      //std::cout << n << " " << m << std::endl;
       cv::Vec3b color = img.at<cv::Vec3b>(cv::Point(m,n));
       color[0] =  25;
       color[1] =  25;
@@ -413,14 +403,18 @@ namespace anpi {
   }
 
   template<typename T>
-  void secondMethod(const std::string       mapPath,
-                    const int                  rows,
+  void secondMethod(const int                  rows,
                     const int                  cols,
                     const int                    in,
                     const int                    im,
                     const int                    on,
                     const int                    om,
-                    const std::vector<T>&  currents) {
+                    const std::vector<T>&  currents,
+                    const T                   alpha,
+                    std::vector<T>&        xPathVec,
+                    std::vector<T>&        yPathVec,
+                    std::vector<T>&        xPartVec,
+                    std::vector<T>&        yPartVec) {
 
     anpi::Matrix<T> xMatrix(rows,cols);
     anpi::Matrix<T> yMatrix(rows,cols);
@@ -476,50 +470,36 @@ namespace anpi {
       }
     }
 
+    xPathVec.clear();
+    yPathVec.clear();
+
+    T value;
+
     for(int n = 0; n < rows; n++) {//divide todos los valores entre el valor mayor
       for(int m = 0; m < cols; m++) {
-        xMatrix[n][m] = xMatrix[n][m] / biggerValue;
-        yMatrix[n][m] = yMatrix[n][m] / biggerValue;
+        value = xMatrix[n][m] / biggerValue;
+        xMatrix[n][m] = value;
+        xPartVec.push_back(value);
+
+        value = yMatrix[n][m] / biggerValue;
+        yMatrix[n][m] = value;
+        yPartVec.push_back(value);
       }
     }
 
-    ////********************************************************
-/*
-    std::cout << std::endl;
+    // interpolacion bilineal
 
-    for(int n = 0; n < rows; n++) {
-      for(int m = 0; m < cols; m++) {
-        std::cout << xMatrix[n][m] << " ";
-      }
-      std::cout << std::endl;
-    }
+    xPathVec.clear();
+    yPathVec.clear();
 
-    std::cout << std::endl;
-
-    for(int n = 0; n < rows; n++) {
-      for(int m = 0; m < cols; m++) {
-        std::cout << yMatrix[n][m] << " ";
-      }
-      std::cout << std::endl;
-    }
-
-    std::cout << std::endl;
-*/
-    ///**********************************************************
-
-    T alpha = T(0.9);
-
-    std::vector<T> xPathVector;
-    std::vector<T> yPathVector;
-
-    xPathVector.push_back(im);
-    yPathVector.push_back(in);
+    xPathVec.push_back(im);
+    yPathVec.push_back(in);
 
     T px = T(im) + alpha * xMatrix[in][im];
     T py = T(in) + alpha * yMatrix[in][im];
 
-    xPathVector.push_back(px);
-    yPathVector.push_back(py);
+    xPathVec.push_back(px);
+    yPathVec.push_back(py);
 
     T xError = std::abs(px - om);
     T yError = std::abs(py - on);
@@ -528,12 +508,6 @@ namespace anpi {
     int m = im;
 
     T dx, dy;
-
-    std::cout << std::endl;
-    std::cout <<  " yError: " << yError << " xError: " << xError << std::endl;
-    std::cout <<  " y: " << py << " x: " << px << std::endl;
-    std::cout << " n: " << n << " m: " << m << std::endl;
-    std::cout << std::endl;
 
     while(xError > T(0.5) || yError > T(0.5)) {
 
@@ -552,25 +526,25 @@ namespace anpi {
         m = cols - 2;
       }
 
-      dx = ((py - (n + 1))/(n - (n + 1))) * (
-             ((px - (m + 1))/(m - (m + 1))) * xMatrix[n][m] +
-             ((px - m)/(m + 1 - m)) * xMatrix[n + 1][m]) +
-           ((py - n)/(n + 1 - n)) * (
-             ((px - (m + 1))/(m - (m + 1))) * xMatrix[n][m + 1] +
-             ((px - m)/(m + 1 - m)) * xMatrix[n + 1][m + 1]);
+      dx = -(py - (n + 1)) * (
+             -(px - (m + 1)) * xMatrix[n][m] +
+              (px - m) * xMatrix[n + 1][m]) +
+            (py - n) * (
+             -(px - (m + 1)) * xMatrix[n][m + 1] +
+              (px - m) * xMatrix[n + 1][m + 1]);
 
-      dy = ((py - (n + 1))/(n - (n + 1))) * (
-             ((px - (m + 1))/(m - (m + 1))) * yMatrix[n][m] +
-             ((px - m)/(m + 1 - m)) * yMatrix[n + 1][m]) +
-           ((py - n)/(n + 1 - n)) * (
-             ((px - (m + 1))/(m - (m + 1))) * yMatrix[n][m + 1] +
-             ((px - m)/(m + 1 - m)) * yMatrix[n + 1][m + 1]);
+      dy = -(py - (n + 1)) * (
+             -(px - (m + 1)) * yMatrix[n][m] +
+              (px - m) * yMatrix[n + 1][m]) +
+            (py - n) * (
+             -(px - (m + 1)) * yMatrix[n][m + 1] +
+              (px - m) * yMatrix[n + 1][m + 1]);
 
       px += alpha * dx;
       py += alpha * dy;
 
-      xPathVector.push_back(px);
-      yPathVector.push_back(py);
+      xPathVec.push_back(px);
+      yPathVec.push_back(py);
 
       xError = std::abs(px - om);
       yError = std::abs(py - on);
@@ -578,90 +552,13 @@ namespace anpi {
       n = std::floor(py);
       m = std::floor(px);
 /*
-      std::cout <<  " errory: " << yError << " errorx: " << xError << std::endl;
-      if(xError <= T(0.5) && yError <= T(0.5)) {
-        std::cout <<  " YUUUUUUUUUUUUUUUUUUUUUUPPPPPPPP " << std::endl;
-      }
-*/
-
       std::cout <<  " dy: " << dy << " dx: " << dx << std::endl;
       std::cout <<  " y: " << py << " x: " << px << std::endl;
       std::cout << " n: " << n << " m: " << m << std::endl;
       std::cout <<  " yError: " << yError << " xError: " << xError << std::endl;
       std::cout << std::endl;
-
-    }
-/*
-    for(int i = 0; i < xPathVector.size(); i++) {
-      std::cout << xPathVector[i] << " " << yPathVector[i] << " " << std::endl;
-    }
 */
-
-    /*
-
-    T px = T(im) + alpha * xMatrix[in][im];
-    T py = T(in) + alpha * yMatrix[in][im];
-
-    T xError = std::abs(om - px);
-    T yError = std::abs(on - py);
-
-    int n = in;
-    int m = im;
-
-    T A, B, C, D, dx, dy;
-    int filaOrigen, filaDiagonal, colOrigen, colDiagonal;
-
-    while(xError > 0.5 || yError >0.5) {
-
-      if(n - 1 < 0) {
-        n = 0;
-      }
-      else if (n + 1 >= rows) {
-        n = rows - 2;
-      }
-
-      if(m - 1 < 0) {
-        m = 0;
-      }
-      else if (m + 1 >= cols) {
-        m = cols - 2;
-      }
-
-      filaOrigen = n;
-      filaDiagonal = n + 1;
-      colOrigen  = m;
-      colDiagonal = m + 1;
-
-      A = (px - filaDiagonal) / (filaOrigen - filaDiagonal);
-      B = (px - colDiagonal) / (colOrigen - colDiagonal);
-      C = (py - filaOrigen) / (filaDiagonal - filaOrigen);
-      D = (py - colOrigen) / (colDiagonal - colOrigen);
-
-      /// calculo del desplazamiento en la estimacion actual
-      dx = A * B * xMatrix[filaOrigen][colOrigen] + C * B * xMatrix[filaDiagonal][colOrigen]+
-           A * D * xMatrix[filaOrigen][colDiagonal] + C * D * xMatrix[filaDiagonal][colDiagonal];
-
-      dy = A * B * yMatrix[filaOrigen][colOrigen] + C * B * yMatrix[filaDiagonal][colOrigen]+
-           A * D * yMatrix[filaOrigen][colDiagonal] + C * D * yMatrix[filaDiagonal][colDiagonal];
-
-      /// se genera la siguiente estimacion
-      px += alpha * dx;
-      py += alpha * dy;
-
-      xPathVector.push_back(px);
-      yPathVector.push_back(py);
-
-      xError = std::abs(om - px);
-      yError = std::abs(on - py);
-
-      m = int(px);
-      n = int(py);
-
-      std::cout <<  " dy: " << dy << " dx: " << dx << std::endl;
-      std::cout <<  " y: " << py << " x: " << px << std::endl;
-      std::cout << " n: " << n << " m: " << m << std::endl;
-
-    }*/
+    }
 
   }
 

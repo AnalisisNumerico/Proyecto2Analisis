@@ -209,7 +209,7 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
 
 BOOST_AUTO_TEST_CASE( FirstMethod ) {
   int rows,cols;
-  std::vector<float> x;
+  std::vector<float> x;/*
   anpi::findPath<float>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
@@ -233,54 +233,37 @@ BOOST_AUTO_TEST_CASE( FirstMethod ) {
   std::cout << std::endl;
 
   anpi::firstMethod("../../images/4x3.png", rows, cols, 0, 0, 2, 0, x);
-
+*/
   anpi::findPath<float>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
-  }
-  std::cout << std::endl;
-  anpi::firstMethod("../../images/5x5.png", rows, cols, 0, 4, 4, 1, x);
+  anpi::firstMethod<float>("../../images/5x5.png", rows, cols, 0, 4, 4, 1, x);
 
   anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
-  }
-  std::cout << std::endl;
-  anpi::firstMethod("../../images/10x15.png", rows, cols, 0, 8, 14, 0, x);
+  anpi::firstMethod<float>("../../images/10x15.png", rows, cols, 0, 8, 14, 0, x);
 
 }
 
 BOOST_AUTO_TEST_CASE( SecondMethod ) {
   int rows,cols;
-  std::vector<float> x;
-/*
-  anpi::findPath<float>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
-  }
-  std::cout << std::endl;
-  anpi::secondMethod("../../images/2x2.png", rows, cols, 0, 0, 1, 1, x);
+  std::vector<float> c;
 
-  anpi::findPath<float>("../../images/3x3.png", 0, 0, 0, 2, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
-  }
-  std::cout << std::endl;
-  anpi::secondMethod("../../images/3x3.png", rows, cols, 0, 0, 0, 2, x);
-/*
-  anpi::findPath<float>("../../images/4x3.png", 0, 0, 2, 0, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
-  }
-  std::cout << std::endl;
-  anpi::secondMethod("../../images/4x3.png", rows, cols, 0, 0, 2, 0, x);
+  std::vector<float> xPath;
+  std::vector<float> yPath;
+  std::vector<float> xPart;
+  std::vector<float> yPart;
 
-  anpi::findPath<float>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, x);
-  for(int i = 0; i < x.size(); i++) {
-    std::cout << x[i] << " ";
+  anpi::findPath<float>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, c);
+  for(int i = 0; i < c.size(); i++) {
+    std::cout << c[i] << " ";
   }
   std::cout << std::endl;
-  anpi::secondMethod("../../images/5x5.png", rows, cols, 0, 4, 4, 1, x);*/
+  anpi::secondMethod<float>(rows, cols, 0, 4, 4, 1, c, 0.1, xPath, yPath, xPart, yPart);
+
+  anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, c);
+  for(int i = 0; i < c.size(); i++) {
+    std::cout << c[i] << " ";
+  }
+  std::cout << std::endl;
+  anpi::secondMethod<float>(rows, cols, 0, 8, 14, 0, c, 0.1, xPath, yPath, xPart, yPart);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
