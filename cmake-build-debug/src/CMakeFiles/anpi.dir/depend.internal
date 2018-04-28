@@ -10,5 +10,7 @@ src/CMakeFiles/anpi.dir/main.cpp.o
  ../include/LUDoolittle.hpp
  ../include/Matrix.hpp
  ../include/Matrix.tpp
+ ../include/PlotPyTNSHA.hpp
+ ../include/PlotPyTNSHA.tpp
  ../include/bits/MatrixArithmetic.hpp
  /home/ger534/CLionProjects/Proyecto2Analisis/src/main.cpp

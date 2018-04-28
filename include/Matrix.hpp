@@ -319,7 +319,7 @@ namespace anpi
     Matrix& operator*=(const Matrix& other);
 
     /// Multiplicate another matrix to this one, and leave the result in here
-    Matrix& operator *=(const std::vector<T>& other);
+    Matrix& operator*=(const std::vector<T>& other);
 
     //@}
 

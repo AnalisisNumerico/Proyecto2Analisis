@@ -76,17 +76,13 @@ namespace anpi {
 
     for(int i = (n-2); i >= 0; i--) {
 
-      /// crear un registro de cero?
       sum = T(0);
 
-      ///potencial para optimizacion
       for(int j = (n-1); j >= (i+1); j--) {
         sum = sum + U[i][j] * w[j];
-        // *LUptr2 = anpi::aimpl::mm_add<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
 
       }
       w[i] = (y[i] - sum) / U[i][i];
-      //*LUptr2 = anpi::aimpl::mm_add<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
 
     }
 
@@ -110,15 +106,7 @@ namespace anpi {
     anpi::Matrix<T> P;
     anpi::permutationMatrix(p,P);
 
-    anpi::Matrix<T>PB = P * b; //ERRROR
-   //TODO:
-    //std::vector<T>PB = P * b; //biien
-
-    std::vector<T> Pb(PB.rows());
-
-    for(int i = 0; i < PB.rows(); i++) {
-      Pb[i] = PB[i][0];
-    }
+    std::vector<T>Pb = P * b;
 
     std::vector<T>y;
     anpi::forwardSubstitution(L,Pb,y);
@@ -126,7 +114,6 @@ namespace anpi {
     anpi::backwardSubstitution(U,y,x);
 
     return 1;
-
 
   }
 

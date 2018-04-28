@@ -20,6 +20,8 @@
 #include "Matrix.hpp"
 #include "Allocator.hpp"
 #include <iostream>
+#include <bits/MatrixArithmetic.hpp>
+#include "Exception.hpp"
 
 // Explicit instantiation of all methods of Matrix
 
@@ -329,7 +331,19 @@ void testMatrixMultiplication() {
        {3, 4}};
   M c = { {2,  4},
           {7, 10} };
+
   M d = a*b;
+
+
+  ///METODO imprime matriz
+  std::cout << "d = [";
+  for(int i =0; i < d.rows(); i++){
+    for(int j =0; j < d.cols(); j++){
+      std::cout << d[i][j] << ", " ;
+    }
+    std::cout << "" << std::endl;
+  }
+  std::cout << "]"<< std::endl;
 
   BOOST_CHECK(c == d);
 

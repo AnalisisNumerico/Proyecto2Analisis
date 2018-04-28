@@ -10,8 +10,6 @@
 
 #include "bits/MatrixArithmetic.hpp"
 #include "Exception.hpp"
-#include "Intrinsics.hpp"
-#include <type_traits>
 
 namespace anpi{
 
@@ -454,8 +452,8 @@ namespace anpi{
     Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a,
                               const Matrix<T,Alloc>& b) {
         if (a.cols() == b.rows()) {
-            //Matrix<T,Alloc> c(a.rows(),b.cols());
-            Matrix<T,Alloc> c(a.rows(),a.cols(),anpi::DoNotInitialize);
+            Matrix<T,Alloc> c(a.rows(),b.cols());
+            //Matrix<T,Alloc> c(a.rows(),a.cols(),anpi::DoNotInitialize);
 
             ::anpi::aimpl::product(a,b,c);
             return c;

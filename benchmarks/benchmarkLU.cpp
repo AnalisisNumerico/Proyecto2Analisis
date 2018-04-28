@@ -20,6 +20,7 @@
 #include <exception>
 #include <cstdlib>
 #include <complex>
+//#include "bits/MatrixArithmetic.hpp"
 
 /**
  * Unit tests for the matrix class
@@ -27,7 +28,6 @@
 #include "benchmarkFramework.hpp"
 #include "Matrix.hpp"
 #include "Allocator.hpp"
-#include "LUCrout.hpp"
 #include "LUDoolittle.hpp"
 
 
@@ -52,8 +52,6 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         /// Construct
         benchAdd(const size_t size)
                 : _size(size),A(size,size,anpi::DoNotInitialize) {
-
-
         }
 
 
@@ -104,8 +102,6 @@ BOOST_AUTO_TEST_SUITE( Matrix )
     public:
         /// Construct
         benchDooLittleSIMD(const size_t size) : _size(size), A(size,size,anpi::DoNotInitialize) {
-
-
         }
 
 
@@ -167,7 +163,7 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
         // Evaluate add on-copy
         inline void eval() {
-            std::vector<size_t> p; ///ESTE P???
+            std::vector<size_t> p;
             anpi::SIMD1::luDoolittle(this->A,this->LU,p);
 
         }
@@ -189,23 +185,21 @@ BOOST_AUTO_TEST_SUITE( Matrix )
         /// State of the benchmarked evaluation
         anpi::Matrix<T> _a;
 
+        typedef anpi::aligned_allocator<T> alloc;
+        anpi::Matrix<T,alloc> _aAlloc;
+
     public:
         /// Construct
         benchFill(const size_t maxSize)
                 : _maxSize(maxSize),_data(maxSize,maxSize,anpi::DoNotInitialize) {
 
-            size_t idx=0;
-            for (size_t r=0;r<_maxSize;++r) {
-                for (size_t c=0;c<_maxSize;++c) {
-                    _data(r,c)=idx++;
-                }
-            }
         }
 
         /// Prepare the evaluation of given size
         void prepare(const size_t size) {
             assert (size<=this->_maxSize);
-            this->_a=std::move(anpi::Matrix<T>(size,size,_data.data()));
+            this->_a.allocate(size,size);
+            this->_aAlloc.allocate(size,size);
         }
     };
 
@@ -218,7 +212,7 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
         // Evaluate add in-place
         inline void eval() {
-            anpi::fallback::fill(float(2),this->_a);
+            anpi::fallback::fill(T(2),this->_aAlloc);
         }
     };
 
@@ -231,7 +225,7 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
         // Evaluate add on-copy
         inline void eval() {
-            anpi::simd::fill(float(2),this->_a);
+            anpi::simd::fill(T(2),this->_aAlloc);
         }
     };
 
@@ -252,8 +246,17 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
-            ::anpi::benchmark::write("Fill sin SIMD",times);
-            ::anpi::benchmark::plotRange(times,"Fill sin SIMD","b");
+            ::anpi::benchmark::write("Fill sin SIMD presicion simple",times);
+            ::anpi::benchmark::plotRange(times,"Fill sin SIMD presicion simple","b");
+        }
+
+        {
+            benchFillFallback<double> baip(n);
+
+            ANPI_BENCHMARK(sizes,repetitions,times,baip);
+
+            ::anpi::benchmark::write("Fill sin SIMD presicion doble",times);
+            ::anpi::benchmark::plotRange(times,"Fill sin SIMD presicion doble","r");
         }
 
         {
@@ -261,8 +264,17 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
-            ::anpi::benchmark::write("Fill con SIMD",times);
-            ::anpi::benchmark::plotRange(times,"Fill con SIMD","r");
+            ::anpi::benchmark::write("Fill con SIMD presicion simple",times);
+            ::anpi::benchmark::plotRange(times,"Fill con SIMD presicion simple","y");
+        }
+
+        {
+            benchFillSIMD<double> baip(n);
+
+            ANPI_BENCHMARK(sizes,repetitions,times,baip);
+
+            ::anpi::benchmark::write("Fill con SIMD presicion doble",times);
+            ::anpi::benchmark::plotRange(times,"Fill con SIMD presicion doble","g");
         }
 
         ::anpi::benchmark::show();
@@ -290,8 +302,19 @@ BOOST_AUTO_TEST_SUITE( Matrix )
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
 
-            ::anpi::benchmark::write("LU Doolittle normal",times);
-            ::anpi::benchmark::plotRange(times,"LU Doolittle normal","b");
+            ::anpi::benchmark::write("LU Doolittle normal precision simple",times);
+            ::anpi::benchmark::plotRange(times,"LU Doolittle normal precision simple","b");
+        }
+
+        {
+            luDoolittleFallback<double> baip(n);
+
+
+            ANPI_BENCHMARK(sizes,repetitions,times,baip);
+
+
+            ::anpi::benchmark::write("LU Doolittle normal precision doble",times);
+            ::anpi::benchmark::plotRange(times,"LU Doolittle normal  precision doble","r");
         }
 
         {
@@ -301,8 +324,19 @@ BOOST_AUTO_TEST_SUITE( Matrix )
 
             ANPI_BENCHMARK(sizes,repetitions,times,baip);
 
-            ::anpi::benchmark::write("LU Doolittle SIMD",times);
-            ::anpi::benchmark::plotRange(times,"LU Doolittle SIMD","r");
+            ::anpi::benchmark::write("LU Doolittle SIMD precision simple",times);
+            ::anpi::benchmark::plotRange(times,"LU Doolittle SIMD precision simple","y");
+        }
+
+        {
+            ///CREO EL ALLOCATOR
+            typedef anpi::aligned_allocator<double> aalloc;
+            luDoolittleSIMD<double, aalloc> baip(n);
+
+            ANPI_BENCHMARK(sizes,repetitions,times,baip);
+
+            ::anpi::benchmark::write("LU Doolittle SIMD precision doble",times);
+            ::anpi::benchmark::plotRange(times,"LU Doolittle SIMD precision doble","g");
         }
 
         ::anpi::benchmark::show();

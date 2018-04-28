@@ -149,6 +149,10 @@ Allocator.hpp
 /home/ger534/CLionProjects/Proyecto2Analisis/test/Allocator.hpp
 iostream
 -
+bits/MatrixArithmetic.hpp
+-
+Exception.hpp
+/home/ger534/CLionProjects/Proyecto2Analisis/test/Exception.hpp
 
 /home/ger534/CLionProjects/Proyecto2Analisis/test/testSolver.cpp
 boost/test/unit_test.hpp

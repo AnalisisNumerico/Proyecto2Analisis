@@ -152,8 +152,6 @@ namespace anpi
       inline void product(Matrix<T,Alloc>& a,
                           const Matrix<T,Alloc>& b) {
 
-
-
           Matrix<T,Alloc> c(a.rows(),b.cols());
           c.allocate(a.rows(),b.cols());
 
@@ -568,10 +566,6 @@ namespace anpi
       ::anpi::fallback::subtract(a,b);
     }
 
-
-
-
-
         ///para el vector
 
         // In-copy implementation c=a*b
@@ -590,9 +584,6 @@ namespace anpi
             //::anpi::fallback::product(a,b,a);
         }
 
-
-
-
         template<typename T,class Alloc>
         // In-place implementation c = a*b
         inline void product(const Matrix<T,Alloc>& a,
@@ -607,12 +598,6 @@ namespace anpi
                             const Matrix<T,Alloc>& b) {
             ::anpi::fallback::product(a,b);
         }
-
-
-
-
-
-
 
     } // namespace simd
 

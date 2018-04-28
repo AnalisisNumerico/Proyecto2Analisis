@@ -77,10 +77,20 @@ bits/MatrixArithmetic.hpp
 ../include/bits/MatrixArithmetic.hpp
 Exception.hpp
 ../include/Exception.hpp
-Intrinsics.hpp
-../include/Intrinsics.hpp
-type_traits
+
+../include/PlotPyTNSHA.hpp
+python2.7/Python.h
 -
+stdlib.h
+-
+string
+-
+vector
+-
+PlotPyTNSHA.tpp
+../include/PlotPyTNSHA.tpp
+
+../include/PlotPyTNSHA.tpp
 
 ../include/bits/MatrixArithmetic.hpp
 Intrinsics.hpp
@@ -97,6 +107,12 @@ iostream
 -
 Matrix.hpp
 -
+Intrinsics.hpp
+-
+bits/MatrixArithmetic.hpp
+-
 LUDoolittle.hpp
 /home/ger534/CLionProjects/Proyecto2Analisis/src/LUDoolittle.hpp
+PlotPyTNSHA.hpp
+/home/ger534/CLionProjects/Proyecto2Analisis/src/PlotPyTNSHA.hpp
 
