@@ -11,7 +11,9 @@ namespace anpi {
   inline void lu(const anpi::Matrix<T>& A,
                  anpi::Matrix<T>&      LU,
                  std::vector<size_t>&   p) {
-    anpi::luDoolittle(A,LU,p);
+
+    anpi::fallback1::luDoolittle(A,LU,p);
+
   }
 
   /** method used to create  the permutation matrix given a
@@ -60,6 +62,7 @@ namespace anpi {
   void backwardSubstitution(const anpi::Matrix<T>& U,
                             const std::vector<T>&  y,
                             std::vector<T>&        x) {
+
     int n = U.rows();
 
     x.clear();
@@ -74,11 +77,15 @@ namespace anpi {
     x[n-1] = y[n-1] / U[n-1][n-1];
 
     for(int i = (n-2); i >= 0; i--) {
+
       sum = T(0);
+
       for(int j = (n-1); j >= (i+1); j--) {
+
         sum += U[i][j] * x[j];
       }
       x[i] = (y[i] - sum) / U[i][i];
+
     }
 
   }
@@ -94,18 +101,12 @@ namespace anpi {
 
     anpi::Matrix<T> L;
     anpi::Matrix<T> U;
-    anpi::unpackDoolittle(LU,L,U);
+    anpi::LUDoolittle1::unpackDoolittle(LU,L,U);
 
     anpi::Matrix<T> P;
     anpi::permutationMatrix(p,P);
 
-    anpi::Matrix<T>PB = P * b;
-
-    std::vector<T> Pb(PB.rows());
-
-    for(int i = 0; i < PB.rows(); i++) {
-      Pb[i] = PB[i][0];
-    }
+    std::vector<T>Pb = P * b;
 
     std::vector<T>y;
     anpi::forwardSubstitution(L,Pb,y);

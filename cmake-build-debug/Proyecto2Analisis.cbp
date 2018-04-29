@@ -11,40 +11,40 @@
 				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="test">
 				<Option working_dir="/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="anpi">
@@ -55,20 +55,12 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 anpi"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 anpi"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="anpi/fast">
@@ -79,20 +71,12 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 anpi/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 anpi/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Proyecto2Analisis">
@@ -103,20 +87,12 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Proyecto2Analisis/fast">
@@ -127,20 +103,12 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Proyecto2Analisis/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="tester">
@@ -152,20 +120,12 @@
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
 					<Add directory="/usr/include/opencv"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 tester"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 tester"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="tester/fast">
@@ -177,20 +137,12 @@
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
 					<Add directory="/usr/include/opencv"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 tester/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 tester/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="benchmark">
@@ -201,20 +153,12 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 benchmark"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 benchmark"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="benchmark/fast">
@@ -225,30 +169,22 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/jeanpaul/Code/c++/Proyecto2Analisis/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 benchmark/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 benchmark/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug/benchmarks/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp">
 			<Option target="benchmark"/>
 		</Unit>
-		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMain.cpp">
+		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkLU.cpp">
 			<Option target="benchmark"/>
 		</Unit>
-		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp">
+		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMain.cpp">
 			<Option target="benchmark"/>
 		</Unit>
 		<Unit filename="/home/jeanpaul/Code/c++/Proyecto2Analisis/src/main.cpp">

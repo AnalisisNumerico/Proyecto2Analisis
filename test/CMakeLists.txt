@@ -31,6 +31,7 @@ file(GLOB TEST_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp *.hpp)
 
 add_executable (tester ${TEST_SRCS})
 target_link_libraries (tester
+        python2.7
         anpi
         ${Boost_FILESYSTEM_LIBRARY}
         ${Boost_SYSTEM_LIBRARY}

@@ -36,20 +36,6 @@ altivec.h
 spe.h
 -
 
-../include/LUCrout.hpp
-cmath
--
-limits
--
-functional
--
-iostream
--
-Exception.hpp
-../include/Exception.hpp
-Matrix.hpp
-../include/Matrix.hpp
-
 ../include/LUDoolittle.hpp
 cmath
 -
@@ -72,6 +58,8 @@ cstring
 cassert
 -
 memory
+-
+vector
 -
 initializer_list
 -
@@ -111,6 +99,8 @@ type_traits
 -
 iostream
 -
+vector
+-
 
 /home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkFramework.hpp
 chrono
@@ -123,16 +113,14 @@ fstream
 -
 limits
 -
+vector
+-
 Matrix.hpp
 -
 PlotPy.hpp
 -
 
-/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
-boost/test/unit_test.hpp
--
-
-/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMatrixAdd.cpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkLU.cpp
 boost/test/unit_test.hpp
 -
 iostream
@@ -149,8 +137,10 @@ Matrix.hpp
 /home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/Matrix.hpp
 Allocator.hpp
 /home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/Allocator.hpp
-LUCrout.hpp
-/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/LUCrout.hpp
 LUDoolittle.hpp
 /home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/LUDoolittle.hpp
+
+/home/jeanpaul/Code/c++/Proyecto2Analisis/benchmarks/benchmarkMain.cpp
+boost/test/unit_test.hpp
+-
 

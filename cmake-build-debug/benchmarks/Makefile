@@ -80,8 +80,8 @@ test/fast: test
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/home/jeanpaul/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -136,6 +136,33 @@ benchmark/fast:
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/build
 .PHONY : benchmark/fast
 
+benchmarkLU.o: benchmarkLU.cpp.o
+
+.PHONY : benchmarkLU.o
+
+# target to build an object file
+benchmarkLU.cpp.o:
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.o
+.PHONY : benchmarkLU.cpp.o
+
+benchmarkLU.i: benchmarkLU.cpp.i
+
+.PHONY : benchmarkLU.i
+
+# target to preprocess a source file
+benchmarkLU.cpp.i:
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.i
+.PHONY : benchmarkLU.cpp.i
+
+benchmarkLU.s: benchmarkLU.cpp.s
+
+.PHONY : benchmarkLU.s
+
+# target to generate assembly for a file
+benchmarkLU.cpp.s:
+	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkLU.cpp.s
+.PHONY : benchmarkLU.cpp.s
+
 benchmarkMain.o: benchmarkMain.cpp.o
 
 .PHONY : benchmarkMain.o
@@ -163,33 +190,6 @@ benchmarkMain.cpp.s:
 	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMain.cpp.s
 .PHONY : benchmarkMain.cpp.s
 
-benchmarkMatrixAdd.o: benchmarkMatrixAdd.cpp.o
-
-.PHONY : benchmarkMatrixAdd.o
-
-# target to build an object file
-benchmarkMatrixAdd.cpp.o:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.o
-.PHONY : benchmarkMatrixAdd.cpp.o
-
-benchmarkMatrixAdd.i: benchmarkMatrixAdd.cpp.i
-
-.PHONY : benchmarkMatrixAdd.i
-
-# target to preprocess a source file
-benchmarkMatrixAdd.cpp.i:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.i
-.PHONY : benchmarkMatrixAdd.cpp.i
-
-benchmarkMatrixAdd.s: benchmarkMatrixAdd.cpp.s
-
-.PHONY : benchmarkMatrixAdd.s
-
-# target to generate assembly for a file
-benchmarkMatrixAdd.cpp.s:
-	cd /home/jeanpaul/Code/c++/Proyecto2Analisis/cmake-build-debug && $(MAKE) -f benchmarks/CMakeFiles/benchmark.dir/build.make benchmarks/CMakeFiles/benchmark.dir/benchmarkMatrixAdd.cpp.s
-.PHONY : benchmarkMatrixAdd.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,12 +200,12 @@ help:
 	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... benchmark"
+	@echo "... benchmarkLU.o"
+	@echo "... benchmarkLU.i"
+	@echo "... benchmarkLU.s"
 	@echo "... benchmarkMain.o"
 	@echo "... benchmarkMain.i"
 	@echo "... benchmarkMain.s"
-	@echo "... benchmarkMatrixAdd.o"
-	@echo "... benchmarkMatrixAdd.i"
-	@echo "... benchmarkMatrixAdd.s"
 .PHONY : help
 
 

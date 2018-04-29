@@ -21,6 +21,8 @@ Solver.hpp
 ../include/Solver.hpp
 opencv2/opencv.hpp
 -
+PlotPyTNSHA.hpp
+../include/PlotPyTNSHA.hpp
 
 ../include/Exception.hpp
 exception
@@ -81,6 +83,8 @@ cassert
 -
 memory
 -
+vector
+-
 initializer_list
 -
 AnpiConfig.hpp
@@ -98,6 +102,20 @@ bits/MatrixArithmetic.hpp
 Exception.hpp
 ../include/Exception.hpp
 
+../include/PlotPyTNSHA.hpp
+python2.7/Python.h
+-
+stdlib.h
+-
+string
+-
+vector
+-
+PlotPyTNSHA.tpp
+../include/PlotPyTNSHA.tpp
+
+../include/PlotPyTNSHA.tpp
+
 ../include/Solver.hpp
 LUDoolittle.hpp
 ../include/LUDoolittle.hpp
@@ -108,6 +126,8 @@ Intrinsics.hpp
 type_traits
 -
 iostream
+-
+vector
 -
 
 /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAllocator.cpp
@@ -155,6 +175,10 @@ Allocator.hpp
 /home/jeanpaul/Code/c++/Proyecto2Analisis/test/Allocator.hpp
 iostream
 -
+bits/MatrixArithmetic.hpp
+-
+Exception.hpp
+/home/jeanpaul/Code/c++/Proyecto2Analisis/test/Exception.hpp
 
 /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testSolver.cpp
 boost/test/unit_test.hpp

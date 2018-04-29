@@ -4,6 +4,7 @@
 #include "Matrix.hpp"
 #include "Solver.hpp"
 #include <opencv2/opencv.hpp>
+#include "PlotPyTNSHA.hpp"
 
 namespace anpi {
 
@@ -80,38 +81,7 @@ namespace anpi {
     }
     
   }
-/*
-  template<typename T>
-  void matrixFiller(const size_t     rows,
-                    const size_t     cols,
-                    anpi::Matrix<T>&    A) {
-    anpi::Matrix<T> a(rows * cols,(2 * rows * cols) - (rows + cols));
-    int count = 0;
-    int j;
-    for(int n = 0; n < rows; n++) {
-      for(int m = 0; m < cols; m++) {
-        if(m - 1 >= 0) {
-          anpi::mapper<float>(rows, cols, n, m, n, m - 1, j);
-          a[count][j] = T(1);
-        }
-        if(n - 1 >= 0) {
-          anpi::mapper<float>(rows, cols, n, m, n - 1, m, j);
-          a[count][j] = T(1);
-        }
-        if(m + 1 < cols) {
-          anpi::mapper<float>(rows, cols, n, m, n, m + 1, j);
-          a[count][j] = T(-1);
-        }
-        if(n + 1 < rows) {
-          anpi::mapper<float>(rows, cols, n, m, n + 1, m, j);
-          a[count][j] = T(-1);
-        }
-        count++;
-      }
-    }
-    A = a;
-  }
-*/
+
   template<typename T>
   void vectorFiller(const size_t rows,
                     const size_t cols,
@@ -149,9 +119,9 @@ namespace anpi {
         else {
           map[x][y] = T(1);
         }
-        //std::cout << map[x][y];
+        //std::cout << map[x][y];/////////////////////////////////////////////////////////////////////
       }
-      //std::cout << std::endl;
+      //std::cout << std::endl;/////////////////////////////////////////////////////////////////////////
     }
   }
 
@@ -181,7 +151,7 @@ namespace anpi {
              const size_t     cols,
              anpi::Matrix<T>&    A) {
 
-    if (A.rows() != (2 * rows * cols - (rows + cols)) &&
+    if (A.rows() != (2 * rows * cols - (rows + cols)) ||
         A.cols() != (2 * rows * cols - (rows + cols))) {
       throw anpi::Exception("anpi::nodos not matching sizes");
     }
@@ -214,11 +184,11 @@ namespace anpi {
   }
 
   template<typename T>
-  void mallas(const size_t rows,
-              const size_t cols,
-              const std::vector<T> &resistVector,
-              const std::vector<T> &b,
-              anpi::Matrix<T> &A) {
+  void mallas(const size_t                  rows,
+              const size_t                  cols,
+              const std::vector<T>& resistVector,
+              const std::vector<T>&            b,
+              anpi::Matrix<T>&                 A) {
 
     int size = (2 * rows * cols - (rows + cols));
 
@@ -410,11 +380,7 @@ namespace anpi {
                     const int                    on,
                     const int                    om,
                     const std::vector<T>&  currents,
-                    const T                   alpha,
-                    std::vector<T>&        xPathVec,
-                    std::vector<T>&        yPathVec,
-                    std::vector<T>&        xPartVec,
-                    std::vector<T>&        yPartVec) {
+                    const T                   alpha) {
 
     anpi::Matrix<T> xMatrix(rows,cols);
     anpi::Matrix<T> yMatrix(rows,cols);
@@ -470,8 +436,8 @@ namespace anpi {
       }
     }
 
-    xPathVec.clear();
-    yPathVec.clear();
+    std::vector<T> xPartVec;
+    std::vector<T> yPartVec;
 
     T value;
 
@@ -489,8 +455,8 @@ namespace anpi {
 
     // interpolacion bilineal
 
-    xPathVec.clear();
-    yPathVec.clear();
+    std::vector<T> xPathVec;
+    std::vector<T> yPathVec;
 
     xPathVec.push_back(im);
     yPathVec.push_back(in);
@@ -512,14 +478,14 @@ namespace anpi {
     while(xError > T(0.5) || yError > T(0.5)) {
 
       //encontrar el puto cuadrante
-      if(n < 0) { // elimminar
+      if(n < 0) {
         n = 0;
       }
       else if (n + 1 >= rows) {
         n = rows - 2;
       }
 
-      if(m < 0) {//eliminar
+      if(m < 0) {
         m = 0;
       }
       else if (m + 1 >= cols) {
@@ -551,14 +517,39 @@ namespace anpi {
 
       n = std::floor(py);
       m = std::floor(px);
-/*
-      std::cout <<  " dy: " << dy << " dx: " << dx << std::endl;
-      std::cout <<  " y: " << py << " x: " << px << std::endl;
-      std::cout << " n: " << n << " m: " << m << std::endl;
-      std::cout <<  " yError: " << yError << " xError: " << xError << std::endl;
-      std::cout << std::endl;
-*/
+
     }
+/*
+    std::cout << std::endl << std::endl << std::endl;
+
+    for(int i = 0; i < xPathVec.size(); i++) {
+      std::cout << xPathVec[i] << ", ";
+    }
+
+    std::cout << std::endl << std::endl << std::endl;
+
+    for(int i = 0; i < yPathVec.size(); i++) {
+      std::cout << yPathVec[i] << ", ";
+    }
+
+    std::cout << std::endl << std::endl << std::endl;
+
+    for(int i = 0; i < xPartVec.size(); i++) {
+      std::cout << xPartVec[i] << ", ";
+    }
+
+    std::cout << std::endl << std::endl << std::endl;
+
+    for(int i = 0; i < yPartVec.size(); i++) {
+      std::cout << yPartVec[i] << ", ";
+    }
+
+    std::cout << std::endl;*/
+
+    anpi::PlotTNSHA<T> plotter;
+    plotter.initialize();
+    plotter.plot(xPathVec,yPathVec,xPartVec,yPartVec);
+    plotter.show();
 
   }
 

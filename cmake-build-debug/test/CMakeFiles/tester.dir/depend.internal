@@ -15,6 +15,8 @@ test/CMakeFiles/tester.dir/testAplication.cpp.o
  ../include/LUDoolittle.hpp
  ../include/Matrix.hpp
  ../include/Matrix.tpp
+ ../include/PlotPyTNSHA.hpp
+ ../include/PlotPyTNSHA.tpp
  ../include/Solver.hpp
  ../include/bits/MatrixArithmetic.hpp
  /home/jeanpaul/Code/c++/Proyecto2Analisis/test/testAplication.cpp
