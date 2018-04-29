@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 
+ * Copyright (C) 2017
  * Área Académica de Ingeniería en Computadoras, TEC, Costa Rica
  *
  * This file is part of the CE3102 Numerical Analysis lecture at TEC
@@ -17,12 +17,12 @@ namespace anpi {
 
   template <typename T>
   Plot2d<T>::~Plot2d(){}
-  
+
   template <typename T>
   void Plot2d<T>::initialize(int id){
     Py_Initialize();
     PyRun_SimpleString("import matplotlib.pyplot as plt");
-    std::string tmp1 = "plt.figure("+std::to_string(id)+")"; 
+    std::string tmp1 = "plt.figure("+std::to_string(id)+")";
     PyRun_SimpleString(tmp1.c_str());
     _title = "";
     _xlabel = "";
@@ -43,35 +43,35 @@ namespace anpi {
     std::string strxlabel = "plt.xlabel('"+ _xlabel +"')";
     PyRun_SimpleString(strxlabel.c_str());
   }
-  
+
   template <typename T>
   void Plot2d<T>::setYLabel(const std::string& ylabel){
     _ylabel = ylabel;
     std::string strylabel = "plt.ylabel('"+ _ylabel +"')";
     PyRun_SimpleString(strylabel.c_str());
   }
-  
+
   template <typename T>
   void Plot2d<T>::setGridSize(const T sizegrid){
     _sizeGrid = sizegrid;
     std::string strgrid = "plt.grid("+std::to_string(_sizeGrid) +")";
     PyRun_SimpleString(strgrid.c_str());
   }
-  
+
   template <typename T>
   void Plot2d<T>::setXRange(const T xi, const T xs){
     std::string strxlim = "plt.xlim("+
       std::to_string(xi) + "," + std::to_string(xs) + ")";
     PyRun_SimpleString(strxlim.c_str());
   }
-  
+
   template <typename T>
   void Plot2d<T>::setYRange(const T yi, const T ys){
     std::string strylim = "plt.ylim("+
       std::to_string(yi) + "," + std::to_string(ys) + ")";
     PyRun_SimpleString(strylim.c_str());
   }
-  
+
 
   template <typename T>
   void Plot2d<T>::plot(const std::vector<T>& datax,
@@ -88,7 +88,7 @@ namespace anpi {
       pltcmd += ",color='" + color + "'";
     }
     pltcmd += ")";
-    
+
     for(size_t i = 0; i < datax.size(); i++) {
       if (i == datax.size() - 1){
         xstr.append(std::to_string(datax[i]) + "]");
@@ -118,7 +118,7 @@ namespace anpi {
     std::string avgystr = "avgy = [";
     std::string minystr = "miny = [";
     std::string maxystr = "maxy = [";
-    
+
     char c=',';
     for(size_t i = 0; i < datax.size(); i++) {
       if (i == datax.size()-1) {
@@ -141,7 +141,7 @@ namespace anpi {
     std::string pltcmd  = "plt.plot(datax,avgy" + lstr + cstr + ",lw=2)";
 
     std::string fillcmd = "plt.fill_between(datax,miny,maxy" + cstr + ",alpha=0.1)";
-    
+
     // Python lines with the data
     PyRun_SimpleString(xstr.c_str());
     PyRun_SimpleString(avgystr.c_str());
@@ -154,10 +154,10 @@ namespace anpi {
     PyRun_SimpleString("plt.legend()");
   }
 
-  
+
   template <typename T>
   void Plot2d<T>::show(){
     PyRun_SimpleString("plt.show()");
   }
-  
+
 } // namespace anpi

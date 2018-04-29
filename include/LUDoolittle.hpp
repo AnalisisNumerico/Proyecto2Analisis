@@ -151,15 +151,15 @@ namespace anpi {
        */
       template<typename T,class Alloc>
       void unpackDoolittle(const Matrix<T,Alloc>& LU,
-                           Matrix<T>& L,
-                           Matrix<T>& U) {
+                           Matrix<T,Alloc>& L,
+                           Matrix<T,Alloc>& U) {
 
         if (LU.cols() == LU.rows()) {
 
           int luCols = LU.cols();
           int luRows = LU.rows();
 
-          U = Matrix<T>(luRows,luCols);
+          U = Matrix<T,Alloc>(luRows,luCols);
 
           for(int j = 0; j < luCols; j++) {
             for(int i = 0; i <= j; i++) {
@@ -167,7 +167,7 @@ namespace anpi {
             }
           }
 
-          L = Matrix<T>(luRows,luCols);
+          L = Matrix<T,Alloc>(luRows,luCols);
 
           for(int i = 0; i < luRows; i++) { //diagonal
             L[i][i] = T(1);

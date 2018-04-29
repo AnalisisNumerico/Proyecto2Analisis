@@ -229,6 +229,13 @@ BOOST_AUTO_TEST_CASE( SecondMethod ) {
   }
   std::cout << std::endl;
   anpi::secondMethod<float>("../../images/10x15.png",rows, cols, 0, 8, 14, 0, c, 0.1);
+
+  anpi::findPath<float>("../../images/15x15.png", 0, 0, 13, 13, rows, cols, c);
+  for(int i = 0; i < c.size(); i++) {
+    std::cout << c[i] << " ";
+  }
+  std::cout << std::endl;
+  anpi::secondMethod<float>("../../images/15x15.png",rows, cols, 0, 0, 13, 13, c, 0.9);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

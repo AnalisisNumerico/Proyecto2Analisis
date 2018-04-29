@@ -127,7 +127,7 @@ int main() {
     std::vector<double> uu = {0,2,2,1,1,8,0,0,4,4,6,6};
     std::vector<double> vv = {0,0,4,4,6,6,0,2,2,1,1,8};
 
-    plotter.plot(bb,cc,uu,vv);
+    //plotter.plot(bb,cc,uu,vv);
     plotter.show();
 
 /*

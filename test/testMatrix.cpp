@@ -334,17 +334,6 @@ void testMatrixMultiplication() {
 
   M d = a*b;
 
-
-  ///METODO imprime matriz
-  std::cout << "d = [";
-  for(int i =0; i < d.rows(); i++){
-    for(int j =0; j < d.cols(); j++){
-      std::cout << d[i][j] << ", " ;
-    }
-    std::cout << "" << std::endl;
-  }
-  std::cout << "]"<< std::endl;
-
   BOOST_CHECK(c == d);
 
   a *= b;

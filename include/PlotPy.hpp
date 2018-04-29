@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 
+ * Copyright (C) 2017
  * Área Académica de Ingeniería en Computadoras, TEC, Costa Rica
  *
  * This file is part of the CE3102 Numerical Analysis lecture at TEC
@@ -19,7 +19,7 @@
 #include <vector>
 
 namespace anpi {
-  
+
   /**
    * Two-dimensional plots
    *
@@ -43,14 +43,14 @@ namespace anpi {
     std::string _ylabel;
     //Tamano de la cuadricula
     T _sizeGrid;
-    
+
   public:
     /// Constructors
     //@{
     Plot2d();
     ~Plot2d();
     //@}
-   
+
     /**
      * Initialize a plot window.
      *
@@ -78,7 +78,7 @@ namespace anpi {
     /**
      * Plot a curve by drawing line segments from
      * the sequence of points (datax[i],datay[i]).  The
-     * curve will have the given legend 
+     * curve will have the given legend
      */
     void plot(const std::vector<T>& datax,
               const std::vector<T>& datay,
@@ -100,7 +100,7 @@ namespace anpi {
               const std::string& legend,
               const std::string& color="r");
 
-    
+
     /**
      * Show all curves plotted so far.
      */
@@ -110,7 +110,7 @@ namespace anpi {
   }; //class Plot2d
 
 } // namespace anpi
-  
+
 #include "PlotPy.tpp"
 
 #endif // PLOTPY_H

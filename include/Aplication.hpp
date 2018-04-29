@@ -285,7 +285,7 @@ namespace anpi {
     rows = map.rows();
     cols = map.cols();
 
-    anpi::solveLU<T>(A,currents,b);
+    anpi::fallbackSolver::solveLU<T>(A,currents,b);
   }
 
   template<typename T>
@@ -439,13 +439,22 @@ namespace anpi {
 
     T value;
 
+    std::vector<T> xOriginPartVec;
+    std::vector<T> yOriginPartVec;
+    std::vector<T> xPartVec;
+    std::vector<T> yPartVec;
+
     for(int n = 0; n < rows; n++) {//divide todos los valores entre el valor mayor
       for(int m = 0; m < cols; m++) {
         value = xMatrix[n][m] / biggerValue;
         xMatrix[n][m] = value;
+        xOriginPartVec.push_back(m);
+        xPartVec.push_back(value);
 
         value = yMatrix[n][m] / biggerValue;
         yMatrix[n][m] = value;
+        yOriginPartVec.push_back(n);
+        yPartVec.push_back(value);
       }
     }
 
@@ -471,7 +480,9 @@ namespace anpi {
 
     T dx, dy;
 
-    while(xError > T(0.5) || yError > T(0.5)) {
+    int counter = 0;
+
+    while((xError > T(0.5) || yError > T(0.5))) {
 
       if(n < 0) {
         n = 0;
@@ -513,6 +524,8 @@ namespace anpi {
       n = std::floor(py);
       m = std::floor(px);
 
+      counter++;
+
     }
 
     //encuentro de obstaculos
@@ -526,8 +539,8 @@ namespace anpi {
       for (int y = 0; y < image.cols; y++) {
         pixelColor = image.at<uchar>(x,y);
         if(pixelColor < 127) {
-          xObsVec.push_back(x);
           xObsVec.push_back(y);
+          yObsVec.push_back(x);
           //std::cout << x << " " << y << std::endl ;/////////////////////////////////////////////////////////////////////
         }
 
@@ -535,11 +548,10 @@ namespace anpi {
       //std::cout << std::endl;/////////////////////////////////////////////////////////////////////////
     }
 
-
     //graficacion
     anpi::PlotTNSHA<T> plotter;
     plotter.initialize();
-    plotter.plot(yPathVec,xPathVec,xObsVec,yObsVec);
+    plotter.plot(xPathVec, yPathVec, xOriginPartVec, yOriginPartVec, xPartVec, yPartVec, xObsVec ,yObsVec);
     plotter.show();
 
   }
