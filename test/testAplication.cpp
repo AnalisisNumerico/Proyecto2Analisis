@@ -177,7 +177,7 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
     BOOST_CHECK(rvect == RVECT);
 }
 
-BOOST_AUTO_TEST_CASE( FirstMethod ) {/*
+BOOST_AUTO_TEST_CASE( FirstMethod ) {
   int rows,cols;
   std::vector<float> x;
   anpi::findPath<float>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
@@ -209,7 +209,7 @@ BOOST_AUTO_TEST_CASE( FirstMethod ) {/*
 
   anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, x);
   anpi::firstMethod<float>("../../images/10x15.png", rows, cols, 0, 8, 14, 0, x);
-*/
+
 }
 
 BOOST_AUTO_TEST_CASE( SecondMethod ) {
@@ -221,14 +221,14 @@ BOOST_AUTO_TEST_CASE( SecondMethod ) {
     std::cout << c[i] << " ";
   }
   std::cout << std::endl;
-  anpi::secondMethod<float>(rows, cols, 0, 4, 4, 1, c, 0.1);
+  anpi::secondMethod<float>("../../images/5x5.png",rows, cols, 0, 4, 4, 1, c, 0.1);
 
   anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, c);
   for(int i = 0; i < c.size(); i++) {
     std::cout << c[i] << " ";
   }
   std::cout << std::endl;
-  anpi::secondMethod<float>(rows, cols, 0, 8, 14, 0, c, 0.1);
+  anpi::secondMethod<float>("../../images/10x15.png",rows, cols, 0, 8, 14, 0, c, 0.1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -373,7 +373,8 @@ namespace anpi {
   }
 
   template<typename T>
-  void secondMethod(const int                  rows,
+  void secondMethod(const std::string          path,
+                    const int                  rows,
                     const int                  cols,
                     const int                    in,
                     const int                    im,
@@ -436,20 +437,15 @@ namespace anpi {
       }
     }
 
-    std::vector<T> xPartVec;
-    std::vector<T> yPartVec;
-
     T value;
 
     for(int n = 0; n < rows; n++) {//divide todos los valores entre el valor mayor
       for(int m = 0; m < cols; m++) {
         value = xMatrix[n][m] / biggerValue;
         xMatrix[n][m] = value;
-        xPartVec.push_back(value);
 
         value = yMatrix[n][m] / biggerValue;
         yMatrix[n][m] = value;
-        yPartVec.push_back(value);
       }
     }
 
@@ -477,7 +473,6 @@ namespace anpi {
 
     while(xError > T(0.5) || yError > T(0.5)) {
 
-      //encontrar el puto cuadrante
       if(n < 0) {
         n = 0;
       }
@@ -519,36 +514,32 @@ namespace anpi {
       m = std::floor(px);
 
     }
-/*
-    std::cout << std::endl << std::endl << std::endl;
 
-    for(int i = 0; i < xPathVec.size(); i++) {
-      std::cout << xPathVec[i] << ", ";
+    //encuentro de obstaculos
+
+    std::vector<T> xObsVec;
+    std::vector<T> yObsVec;
+
+    cv::Mat image = cv::imread(path,0);
+    int pixelColor;
+    for (int x = 0;x < image.rows; x++) {
+      for (int y = 0; y < image.cols; y++) {
+        pixelColor = image.at<uchar>(x,y);
+        if(pixelColor < 127) {
+          xObsVec.push_back(x);
+          xObsVec.push_back(y);
+          //std::cout << x << " " << y << std::endl ;/////////////////////////////////////////////////////////////////////
+        }
+
+      }
+      //std::cout << std::endl;/////////////////////////////////////////////////////////////////////////
     }
 
-    std::cout << std::endl << std::endl << std::endl;
 
-    for(int i = 0; i < yPathVec.size(); i++) {
-      std::cout << yPathVec[i] << ", ";
-    }
-
-    std::cout << std::endl << std::endl << std::endl;
-
-    for(int i = 0; i < xPartVec.size(); i++) {
-      std::cout << xPartVec[i] << ", ";
-    }
-
-    std::cout << std::endl << std::endl << std::endl;
-
-    for(int i = 0; i < yPartVec.size(); i++) {
-      std::cout << yPartVec[i] << ", ";
-    }
-
-    std::cout << std::endl;*/
-
+    //graficacion
     anpi::PlotTNSHA<T> plotter;
     plotter.initialize();
-    plotter.plot(xPathVec,yPathVec,xPartVec,yPartVec);
+    plotter.plot(yPathVec,xPathVec,xObsVec,yObsVec);
     plotter.show();
 
   }
