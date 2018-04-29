@@ -279,7 +279,7 @@ namespace anpi {
 
   }
 
-  template<typename T>
+  template<typename T, class Alloc>
   void findPath(const std::string mapPath,
                 const int              in,
                 const int              im,
@@ -299,7 +299,7 @@ namespace anpi {
 
     int size = 2 * map.rows() * map.cols() - (map.rows() + map.cols());
 
-    anpi::Matrix<T> A(size,size);
+    anpi::Matrix<T, Alloc> A(size,size);
 
     anpi::nodos<T>(map.rows(), map.cols(), A);
 
@@ -315,7 +315,8 @@ namespace anpi {
     rows = map.rows();
     cols = map.cols();
 
-    anpi::solveLU<T>(A,currents,b);
+
+    anpi::solveLU<T, Alloc>(A,currents,b);
   }
 
   template<typename T>

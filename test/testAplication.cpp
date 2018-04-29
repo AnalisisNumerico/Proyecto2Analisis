@@ -245,20 +245,21 @@ BOOST_AUTO_TEST_CASE( FirstMethod ) {
 BOOST_AUTO_TEST_CASE( SecondMethod ) {
   int rows,cols;
   std::vector<float> c;
+  typedef anpi::aligned_allocator<float> falloc;
 
   std::vector<float> xPath;
   std::vector<float> yPath;
   std::vector<float> xPart;
   std::vector<float> yPart;
 
-  anpi::findPath<float>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, c);
+  anpi::findPath<float,falloc>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, c);
   for(int i = 0; i < c.size(); i++) {
     std::cout << c[i] << " ";
   }
   std::cout << std::endl;
   anpi::secondMethod<float>(rows, cols, 0, 4, 4, 1, c, 0.1, xPath, yPath, xPart, yPart);
 
-  anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, c);
+  anpi::findPath<float,falloc>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, c);
   for(int i = 0; i < c.size(); i++) {
     std::cout << c[i] << " ";
   }
