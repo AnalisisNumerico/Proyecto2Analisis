@@ -178,41 +178,43 @@ BOOST_AUTO_TEST_CASE( ResistVector ) {
 }
 
 BOOST_AUTO_TEST_CASE( FirstMethod ) {
+  typedef anpi::aligned_allocator<float> aalloc;
+
   int rows,cols;
-  std::vector<float> x;
-  anpi::findPath<float>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
+  std::vector<float> x;/*
+  anpi::findPath<float,aalloc>("../../images/2x2.png", 0, 0, 1, 1, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
   anpi::firstMethod<float>("../../images/2x2.png", rows, cols, 0, 0, 1, 1, x);
-
-  anpi::findPath<float>("../../images/3x3.png", 0, 0, 0, 2, rows, cols, x);
+*/
+  anpi::findPath<float,aalloc>("../../images/3x3.png", 0, 0, 0, 2, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
 
-  anpi::firstMethod<float>("../../images/3x3.png", rows, cols, 0, 0, 0, 2, x);
-
-  anpi::findPath<float>("../../images/4x3.png", 0, 0, 2, 0, rows, cols, x);
+ // anpi::firstMethod<float>("../../images/3x3.png", rows, cols, 0, 0, 0, 2, x);
+/*
+  anpi::findPath<float,aalloc>("../../images/4x3.png", 0, 0, 2, 0, rows, cols, x);
   for(int i = 0; i < x.size(); i++) {
     std::cout << x[i] << " ";
   }
   std::cout << std::endl;
+*/
+ // anpi::firstMethod<float>("../../images/4x3.png", rows, cols, 0, 0, 2, 0, x);
 
-  anpi::firstMethod<float>("../../images/4x3.png", rows, cols, 0, 0, 2, 0, x);
+  //anpi::findPath<float,aalloc>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, x);
+  //anpi::firstMethod<float>("../../images/5x5.png", rows, cols, 0, 4, 4, 1, x);
 
-  anpi::findPath<float>("../../images/5x5.png", 0, 4, 4, 1, rows, cols, x);
-  anpi::firstMethod<float>("../../images/5x5.png", rows, cols, 0, 4, 4, 1, x);
-
-  anpi::findPath<float>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, x);
-  anpi::firstMethod<float>("../../images/10x15.png", rows, cols, 0, 8, 14, 0, x);
+  //anpi::findPath<float,aalloc>("../../images/10x15.png", 0, 8, 14, 0, rows, cols, x);
+ // anpi::firstMethod<float>("../../images/10x15.png", rows, cols, 0, 8, 14, 0, x);
 
 }
 
-BOOST_AUTO_TEST_CASE( SecondMethod ) {
+BOOST_AUTO_TEST_CASE( SecondMethod ) {/*
   int rows,cols;
   std::vector<float> c;
 
@@ -235,7 +237,7 @@ BOOST_AUTO_TEST_CASE( SecondMethod ) {
     std::cout << c[i] << " ";
   }
   std::cout << std::endl;
-  anpi::secondMethod<float>("../../images/15x15.png",rows, cols, 0, 0, 13, 13, c, 0.9);
+  anpi::secondMethod<float>("../../images/15x15.png",rows, cols, 0, 0, 13, 13, c, 0.9);*/
 }
 
 BOOST_AUTO_TEST_SUITE_END()

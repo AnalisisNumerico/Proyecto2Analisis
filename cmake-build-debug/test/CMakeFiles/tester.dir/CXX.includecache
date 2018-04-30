@@ -119,8 +119,6 @@ PlotPyTNSHA.tpp
 ../include/Solver.hpp
 LUDoolittle.hpp
 ../include/LUDoolittle.hpp
-LUDoolittle.hpp
-../include/LUDoolittle.hpp
 
 ../include/bits/MatrixArithmetic.hpp
 Intrinsics.hpp

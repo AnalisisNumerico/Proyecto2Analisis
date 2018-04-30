@@ -146,10 +146,10 @@ namespace anpi {
    * @param cols Resistive grid cols
    * @param A    Matrix to be filled
    */
-  template<typename T>
+  template<typename T, class Alloc>
   void nodos(const size_t     rows,
              const size_t     cols,
-             anpi::Matrix<T>&    A) {
+             anpi::Matrix<T,Alloc>&    A) {
 
     if (A.rows() != (2 * rows * cols - (rows + cols)) ||
         A.cols() != (2 * rows * cols - (rows + cols))) {
@@ -183,12 +183,12 @@ namespace anpi {
     }
   }
 
-  template<typename T>
+  template<typename T,class Alloc>
   void mallas(const size_t                  rows,
               const size_t                  cols,
               const std::vector<T>& resistVector,
               const std::vector<T>&            b,
-              anpi::Matrix<T>&                 A) {
+              anpi::Matrix<T,Alloc>&                 A) {
 
     int size = (2 * rows * cols - (rows + cols));
 
@@ -249,7 +249,7 @@ namespace anpi {
 
   }
 
-  template<typename T>
+  template<typename T, class Alloc>
   void findPath(const std::string mapPath,
                 const int              in,
                 const int              im,
@@ -269,15 +269,15 @@ namespace anpi {
 
     int size = 2 * map.rows() * map.cols() - (map.rows() + map.cols());
 
-    anpi::Matrix<T> A(size,size);
+    anpi::Matrix<T,Alloc> A(size,size);
 
-    anpi::nodos<T>(map.rows(), map.cols(), A);
+    anpi::nodos<T,Alloc>(map.rows(), map.cols(), A);
 
     std::vector<T> resistVector;
 
     anpi::resistVector(map,resistVector);
 
-    anpi::mallas(map.rows(), map.cols(), resistVector, b, A);
+    anpi::mallas<T,Alloc>(map.rows(), map.cols(), resistVector, b, A);
 
     currents.clear();
     currents.resize(size,T(1));
@@ -285,7 +285,7 @@ namespace anpi {
     rows = map.rows();
     cols = map.cols();
 
-    anpi::fallbackSolver::solveLU<T>(A,currents,b);
+    anpi::SIMDSolver::solveLU<T,Alloc>(A,currents,b);
   }
 
   template<typename T>

@@ -210,6 +210,8 @@ namespace anpi {
                        Matrix<T, Alloc>& LU,
                        std::vector<size_t>& permut) {
 
+
+
         if(A.rows() == A.cols()) {
 
           LU = A;
@@ -223,7 +225,7 @@ namespace anpi {
 
             //const typename sse2_traits<T>::reg_type* LUptr1  = reinterpret_cast<const typename sse2_traits<T>::reg_type*>(LU.data());
             typename sse2_traits<T>::reg_type* LUptr1  = reinterpret_cast<typename sse2_traits<T>::reg_type*>(LU.data());
-            for(int j = 0; j < n-1; j++) {
+            for(int j = 0; j < n-1-1; j++) {
 
             int bigI = j;
             for(int i = j; i < n; i++) { //busco el mayor numero en la columna
@@ -254,12 +256,11 @@ namespace anpi {
                 LU[i][j] = LU[i][j] / LU[j][j]; // obtencion de l
                   typename sse2_traits<T>::reg_type escalar = anpi::aimpl::mm_set1<T, typename sse2_traits<T>::reg_type>(LU[i][j]);
                   const T fin = LU.cols()/(sizeof(typename sse2_traits<T>::reg_type)/ (sizeof(T)));
-                for(int k = 0; k < fin; k++) {
-                    T temp = LU[i][k];
-                    *LUptr2 = anpi::aimpl::mm_sub<T, typename sse2_traits<T>::reg_type>(*LUptr2, anpi::aimpl::mm_mul<T, typename sse2_traits<T>::reg_type>(escalar, *LUptr1));
-                    LU[i][k] = temp;
+                for(int k = j+1; k < n; k++) {
+                  LU[i][k] = LU[i][k] - LU[i][j] * LU[j][k];
                 }
             }
+
           LUptr1++;
           }
           permut = index;
